@@ -88,7 +88,7 @@ const Logo = ({
           xmlns="http://www.w3.org/2000/svg">
           <path d="M39.416.944H.3v15.3h39.116V.944Z"
             stroke=""
-            stroke-width=".028"
+            strokeWidth=".028"
           />
           <path d="M5.34 3.838v9.512h2.232V9.86h.02l.214-.21 3.234 3.666h2.703L9.257 8.23l4.486-4.392h-2.777L7.57 7.16V3.838h-2.23Z"
             fill="#FF2A2A"
