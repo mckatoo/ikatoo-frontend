@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
+
+@layer base {
+  @font-face {
+    font-family: 'Indie Flower';
+    src: font-url('fonts/IndieFlower-Regular.ttf') format('truetype');
+  }
+}
+
 @tailwind utilities;
+
+p {
+  margin-bottom: 1rem;
+}

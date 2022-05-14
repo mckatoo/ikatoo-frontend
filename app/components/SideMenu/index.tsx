@@ -38,6 +38,7 @@ const SideMenu = () => {
           text-center
           fixed
           w-fit
+          max-w-[13rem]
           z-20
           h-full
           bg-slate-800
@@ -53,7 +54,7 @@ const SideMenu = () => {
           <ul className="list-reset border-slate-700 border-y-2 divide-y divide-slate-700 font-semibold">
             {links.map(({ label, to }, index) => (
               <li key={index} className="py-4 px-10 w-full">
-                <NavLink prefetch='intent' to={`/${to}`} className={({ isActive }) => isActive ? 'text-[#08FDD8]' : ''}>
+                <NavLink prefetch='intent' to={`/${to}`} className={({ isActive }) => isActive ? 'text-mck_aqua' : ''}>
                   <span>{label}</span>
                 </NavLink>
               </li>
