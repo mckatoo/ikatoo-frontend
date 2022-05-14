@@ -1,30 +1,40 @@
 import type { LoaderFunction, MetaFunction } from '@remix-run/node'
+import { useLoaderData } from '@remix-run/react'
+import { TextContainer } from '~/components/TextContainer'
 import SideMenu from '~/components/SideMenu'
 
-// type AboutProps = {
-//   skils: string[]
-// }
+type AboutProps = {
+  skills: string[]
+  title?: string
+  describe: string
+  image?: string
+}
 
 export const loader: LoaderFunction = async ({ params }) => {
-  const skils = [
-    "ES5/ES6",
-    "Node JS",
-    "HTML",
-    "CSS",
-    "TypeScript",
-    "REST",
-    "JSON",
-    "Wordpress",
-    "Git",
-    "Bootstrap",
-    "ReactJS",
-    "SQl",
-    "npm",
-    "PHP",
-    "JAVA"
-  ]
+  const about: AboutProps = {
+    skills: [
+      "ES5/ES6",
+      "Node JS",
+      "HTML",
+      "CSS",
+      "TypeScript",
+      "REST",
+      "JSON",
+      "Wordpress",
+      "Git",
+      "Bootstrap",
+      "ReactJS",
+      "SQl",
+      "npm",
+      "PHP",
+      "JAVA"
+    ],
+    title: 'Olá. Bem vindo❗',
+    describe: '<p>Me chamo Milton Carlos Katoo, moro em Itapira, interior de São Paulo/Brasil. Pai de uma princesa e filho de excelente cozinheira Italiana e um saldoso Japonês faz tudo, sou um desenvolvedor full-stack que ama programação e desenvolvimento de software afim de melhorar a vida das pessoas.</p><p>Pessoa bem organizada, solucionador de problemas, funcionário independente com alta atenção aos detalhes.Fã de animes, mangas, games, séries de TV e filmes. Uma pessoa de família e pai de uma princesa.</p><p>Interessado em todo o espectro de programação e trabalhar em projetos ambiciosos com pessoas positivas.</p><a class="text-mck_aqua underline underline-offset-8" href="https://ikatoo.com.br/contact/" rel="contact"><span>🎉</span>Vamos fazer algo especial.</a><span>😄</span>',
+    image: '/images/pai.png'
+  }
 
-  return { skils }
+  return about
 }
 
 export const meta: MetaFunction = () => ({
@@ -32,38 +42,33 @@ export const meta: MetaFunction = () => ({
 })
 
 export default () => {
-  return <>
+  const { describe, title, image } = useLoaderData<AboutProps>()
+
+  return <div className="flex flex-row bg-mck_black_light h-full w-full">
     <SideMenu />
 
-    {/* <div className="section-full page-about js-page-about">
-      <div className="text-zone">
-        <header>
-          <h2 aria-label="My, Myself &amp; I" className="blast-root"><span className="blast" aria-hidden="true">M</span><span className="blast" aria-hidden="true">y</span><span className="blast" aria-hidden="true" >,</span> <span className="blast" aria-hidden="true" >M</span><span className="blast" aria-hidden="true" >y</span><span className="blast" aria-hidden="true" >s</span><span className="blast" aria-hidden="true" >e</span><span className="blast" aria-hidden="true" >l</span><span className="blast" aria-hidden="true" >f</span> <span className="blast" aria-hidden="true" >&amp;</span> <span className="blast" aria-hidden="true" >I</span></h2>
-          <div className="fake-h2">My, Myself &amp; I</div>
-        </header>
-
-        <p>I’m a Front-End Developer located in Poland. I have a serious passion for UI effects, animations and creating intuitive, dynamic user experiences.</p>
-        <p>Well-organised person, problem solver, independent employee with high attention to detail. Fan of MMA, outdoor activities, TV series and English literature. A family person and father of two fractious boys,</p>
-        <p>Interested in the entire frontend spectrum and working on ambitious projects with positive people.</p>
-        <p><a href="https://jacekjeznach.com/contact/" rel="contact">Let’s make something special.</a></p>
-
-
-        <div className="clear"></div>
-
+    <div className={!image ? 'w-full' : 'w-1/2'}>
+      {!!title && (
+        <TextContainer title={title}>
+          <div dangerouslySetInnerHTML={{ __html: describe }} />
+        </TextContainer>
+      )}
+    </div>
+    {!!image && (
+      <div className='w-1/2 flex items-center justify-center'>
+        <div
+          className='
+          w-full
+          h-full
+          bg-center
+          bg-no-repeat
+          bg-[url("/images/pai.png")]
+          shadow-mck_black_light
+          shadow-image
+        '
+        />
       </div>
+    )}
 
-      <div className="skills-charts">
-
-        <div id="myCanvasContainer">
-          <canvas width="500" height="500" id="myCanvas">
-            <ul>
-              <li>{ }</li>
-            </ul>
-          </canvas>
-        </div>
-
-        <div className="clear"></div>
-      </div>
-    </div> */}
-  </>
+  </div>
 }
