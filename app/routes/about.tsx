@@ -44,10 +44,26 @@ export const meta: MetaFunction = () => ({
 export default () => {
   const { describe, title, image } = useLoaderData<AboutProps>()
 
-  return <div className="flex flex-row bg-mck_black_light h-full w-full">
+  return <div className="flex flex-row bg-mck_black_light h-screen w-full">
     <SideMenu />
 
-    <div className={!image ? 'w-full' : 'w-1/2'}>
+    <div className='flex flex-row items-start ml-52 mt-4 bg-mck_black_light'>
+      <div className={!image ? 'w-full' : 'flex flex-row w-1/2'}>
+        {!!title && (
+          <TextContainer title={title}>
+            <div dangerouslySetInnerHTML={{ __html: describe }} />
+          </TextContainer>
+        )}
+      </div>
+
+      {!!image && (
+        <div className='flex w-1/2 h-fit justify-center'>
+          <img src="/images/pai.png" alt="Saudoso Pai" />
+        </div>
+      )}
+    </div>
+
+    {/* <div className={!image ? 'w-full' : 'w-1/2'}>
       {!!title && (
         <TextContainer title={title}>
           <div dangerouslySetInnerHTML={{ __html: describe }} />
@@ -68,7 +84,7 @@ export default () => {
         '
         />
       </div>
-    )}
+    )} */}
 
   </div>
 }
