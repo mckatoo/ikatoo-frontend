@@ -14,6 +14,7 @@ module.exports = {
         'mck_black': '#00021f',
         'mck_black_light': '#00032c',
         'mck_aqua': '#08FDD8',
+        'mck_red': '#ff2a2a',
       },
     },
   },
