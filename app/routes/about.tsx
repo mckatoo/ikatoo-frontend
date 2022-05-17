@@ -47,10 +47,10 @@ export const meta: MetaFunction = () => ({
 export default () => {
   const { describe, title, image, skills } = useLoaderData<AboutProps>()
 
-  return <div className="flex flex-row bg-mck_black_light h-screen w-full">
+  return <div className="flex flex-row bg-mck_black_light min-h-screen h-full w-full">
     <SideMenu />
 
-    <div className='flex flex-row items-start ml-52 mt-4 bg-mck_black_light'>
+    <div className='flex flex-row items-start ml-52 mt-4'>
       <div className='flex flex-row w-1/2'>
         {!!title && (
           <TextContainer title={title}>
