@@ -62,7 +62,7 @@ export const loader: LoaderFunction = async ({ params }) => {
 }
 
 export const meta: MetaFunction = () => ({
-  title: "iKatoo - Milton Carlos Katoo - Desenvolvedor Web"
+  title: "Milton Carlos Katoo - Desenvolvedor Web"
 })
 
 export default () => {
