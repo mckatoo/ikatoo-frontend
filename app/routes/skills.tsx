@@ -30,7 +30,7 @@ export const loader: LoaderFunction = async ({ params }) => {
     <p>Sempre estudando banco de dados e programação, em 2013 surgiu uma oportunidade na faculdade onde trabalhei e estudei até julho de 2021.</p>
     <p>Lá atuei principalmente na manutenção e implementação de rede de computadores com 3 laboratórios de informática, departamentos administrativos e outros departamentos academicos. Implementei uma revista eletronica "Consciesi" e desenvolvi pequenas ferramentas para auxiliar o sistema administrativo e acadêmico.</p>
     <p>Atualmente estou desempregado procurando novas oportunidades.</p>
-    <p>Visite meu perfil no <a target="_blank" href="https://linkedin.com/in/mckatoo">LinkedIn</a> para mais detalhes ou entre em <a href="/contacts">contato</a> comigo.`,
+    <p>Visite meu perfil no <a target="_blank" href="https://linkedin.com/in/mckatoo">LinkedIn</a> para mais detalhes ou entre em <a href="/contact">contato</a> comigo.`,
     skills: [
       { skillTitle: 'Back-end', rankPercent: 20 },
       { skillTitle: 'Modelagem de dados', rankPercent: 30 },

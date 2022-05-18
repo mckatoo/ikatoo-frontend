@@ -17,7 +17,7 @@ const links: SideMenuItem[] = [
   { label: "Sobre", to: "about" },
   { label: "Habilidades", to: "skills" },
   { label: "Projetos", to: "projects" },
-  { label: "Contatos", to: "contacts" },
+  { label: "Contatos", to: "contact" },
   { label: "Blog", to: "blog" },
 ]
 
