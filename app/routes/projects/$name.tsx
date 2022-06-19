@@ -1,12 +1,11 @@
 import type { LoaderFunction } from "@remix-run/node"
 import { useLoaderData } from "@remix-run/react"
-import { secrets } from "secrets"
 
 export const loader: LoaderFunction = async ({ params }) => {
   const res = await fetch(`https://api.github.com/users/${params.name}`, {
     headers: {
       accept: "application/vnd.github.v3+json",
-      Authorization: `token ${secrets.GITHUB_TOKEN}`,
+      Authorization: `token ${process.env.GITHUB_TOKEN}`,
     }
   })
 

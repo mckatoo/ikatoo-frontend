@@ -18,7 +18,7 @@ const links: SideMenuItem[] = [
   { label: "Habilidades", to: "skills" },
   { label: "Projetos", to: "projects" },
   { label: "Contatos", to: "contact" },
-  { label: "Blog", to: "blog" },
+  // { label: "Blog", to: "blog" },
 ]
 
 const social: SocialUsernameProps = {

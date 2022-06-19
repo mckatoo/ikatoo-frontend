@@ -1,6 +1,5 @@
 node_modules
 
-/secrets.ts
 /.cache
 /build
 /public/build
