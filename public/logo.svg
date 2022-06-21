@@ -2,12 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="39.143749mm"
+   height="15.328912mm"
+   viewBox="0 0 39.143749 15.328912"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    sodipodi:docname="logo.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -27,22 +27,27 @@
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:zoom="1.8850449"
-     inkscape:cx="194.95557"
-     inkscape:cy="701.84005"
-     inkscape:window-width="1366"
-     inkscape:window-height="715"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:cx="2.387211"
+     inkscape:cy="62.863224"
+     inkscape:window-width="1360"
+     inkscape:window-height="704"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <defs
      id="defs2" />
   <g
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-21.286379,-179.92943)">
     <rect
-       style="fill:none;fill-opacity:1;stroke-width:0.0282247;stroke:#00021f;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#00021f;stroke-width:0.0282247;stroke-opacity:1"
        id="rect858"
        width="39.115524"
        height="15.300687"
