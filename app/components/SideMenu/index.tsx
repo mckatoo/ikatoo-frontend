@@ -2,7 +2,7 @@ import { NavLink } from '@remix-run/react'
 
 import Logo from '../Logo'
 
-export type SideMenuItem = {
+type SideMenuItem = {
   label: string
   to: string
 }
@@ -25,6 +25,11 @@ const social: SocialUsernameProps = {
   linkedin: "mckatoo",
   github: "mckatoo",
   youtube: "UCc1e1mclC9o5OnQU87PcU1g",
+}
+
+export type SideMenuProps = {
+  links: SideMenuItem[]
+  social: SocialUsernameProps
 }
 
 const SideMenu = () => {
