@@ -3,6 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": {
+    "name": "Milton Carlos Katoo",
+    "url": "https://www.ikatoo.com.br",
+    "email": "mckatoo@gmail.com"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
