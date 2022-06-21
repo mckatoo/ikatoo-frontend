@@ -1,11 +1,11 @@
 export type LogoProps = {
   mobileSize?: boolean
   id?: string
+  name?: string
+  description?: string
 }
 
-const Logo = ({
-  mobileSize = false
-}: LogoProps) => {
+const Logo = ({ mobileSize = false, name, description }: LogoProps) => {
   return (
     <div className="flex flex-col place-items-center">
       {mobileSize
@@ -98,8 +98,8 @@ const Logo = ({
           />
         </svg>
       }
-      <p className="font-semibold">Milton Carlos Katoo</p>
-      <span className="text-sm text-gray-500">Software Developer</span>
+      {!!name && <p className="font-semibold">{name}</p>}
+      {!!description && <span className="text-sm text-gray-500">{description}</span>}
     </div>
   )
 }
