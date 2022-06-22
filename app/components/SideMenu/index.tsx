@@ -41,11 +41,10 @@ const SideMenu = () => {
         aria-label="Side Menu"
         className="
           text-center
-          fixed
           w-fit
           max-w-[13rem]
           z-20
-          h-full
+          h-screen
           bg-slate-800
           flex
           flex-col
