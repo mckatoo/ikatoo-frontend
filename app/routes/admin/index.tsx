@@ -25,16 +25,19 @@ export default function Admin() {
   return <div className="flex flex-row bg-mck_black_light min-h-screen h-full w-full">
     <SideMenu />
 
-    <div className='flex flex-row items-start ml-52 mt-4'>
-      <Form method="post">
-        <button>Log Out</button>
-      </Form>
+    <div className='flex flex-col w-max items-start'>
+      <div className="flex flex-row w-full bg-slate-800 justify-end">
+        <Form method="post">
+          <button>Log Out</button>
+        </Form>
+      </div>
 
-      <hr />
+      <div className="flex flex-row w-full">
+        <pre>
+          <code>{JSON.stringify(profile, null, 2)}</code>
+        </pre>
+      </div>
 
-      <pre>
-        <code>{JSON.stringify(profile, null, 2)}</code>
-      </pre>
       {/* <div className='flex flex-row w-1/2'>
         {!!title && (
           <TextContainer title={title}>

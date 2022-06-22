@@ -51,7 +51,7 @@ const SideMenu = () => {
           justify-between
       ">
         <div className="z-30 flex justify-center px-4 py-8 bg-mck_black">
-          <Logo aria-label="Logotipo" />
+          <Logo aria-label="Logotipo" name="Milton Carlos Katoo" description="Software Developer" />
         </div>
 
         <div className="text-lg">
