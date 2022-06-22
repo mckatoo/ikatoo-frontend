@@ -71,7 +71,7 @@ export default () => {
   return <div className="flex flex-row min-h-fit h-full w-full">
     <SideMenu />
 
-    <div className='flex flex-row items-start ml-52 mt-4'>
+    <div className='flex flex-row items-start ml-4 mt-4'>
       <div className='flex flex-row w-1/2'>
         {!!title && (
           <TextContainer title={title}>
