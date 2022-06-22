@@ -41,7 +41,7 @@ export default () => {
   return <div className="flex flex-row min-h-fit h-full w-full">
     <SideMenu />
 
-    <div className='flex flex-row items-start ml-52 mt-4'>
+    <div className='flex flex-row items-start ml-4 mt-4'>
       <div className='flex h-full w-1/2'>
         {
           <TextContainer title={title}>
