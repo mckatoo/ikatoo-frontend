@@ -1,11 +1,10 @@
-import type { LoaderFunction, MetaFunction } from '@remix-run/node'
+import type { LoaderFunction, MetaFunction } from '@remix-run/node';
 import type { CardProps } from '~/components/Card';
-import Card from '~/components/Card'
-import ProgressBar from '~/components/ProgressBar'
-import SideMenu from '~/components/SideMenu'
-import { TextContainer } from '~/components/TextContainer'
+import Card from '~/components/Card';
+import ProgressBar from '~/components/ProgressBar';
+import { TextContainer } from '~/components/TextContainer';
 
-import { useLoaderData } from '@remix-run/react'
+import { useLoaderData } from '@remix-run/react';
 
 type SkillsProps = {
   title: string
@@ -69,8 +68,6 @@ export default () => {
   const { description, title, skills, lastJobs } = useLoaderData<SkillsProps>()
 
   return <div className="flex flex-row min-h-fit h-full w-full">
-    <SideMenu />
-
     <div className='flex flex-row items-start ml-4 mt-4'>
       <div className='flex flex-row w-1/2'>
         {!!title && (

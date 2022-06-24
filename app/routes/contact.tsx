@@ -1,12 +1,11 @@
 import type { LoaderFunction, MetaFunction } from '@remix-run/node'
 import Map from '~/components/Map'
-import SideMenu from '~/components/SideMenu'
 import { TextContainer } from '~/components/TextContainer'
 
 import { useLoaderData } from '@remix-run/react'
 
-import type { LocalizationType } from '~/components/Map'
 import type { FormEvent } from 'react'
+import type { LocalizationType } from '~/components/Map'
 type ContactProps = {
   title: string
   description: string
@@ -39,8 +38,6 @@ export default () => {
   }
 
   return <div className="flex flex-row min-h-fit h-full w-full">
-    <SideMenu />
-
     <div className='flex flex-row items-start ml-4 mt-4'>
       <div className='flex h-full w-1/2'>
         {
