@@ -13,26 +13,12 @@ type SocialUsernameProps = {
   youtube: string
 }
 
-const links: SideMenuItem[] = [
-  { label: "Sobre", to: "about" },
-  { label: "Habilidades", to: "skills" },
-  { label: "Projetos", to: "projects" },
-  { label: "Contatos", to: "contact" },
-  // { label: "Blog", to: "blog" },
-]
-
-const social: SocialUsernameProps = {
-  linkedin: "mckatoo",
-  github: "mckatoo",
-  youtube: "UCc1e1mclC9o5OnQU87PcU1g",
-}
-
 export type SideMenuProps = {
   links: SideMenuItem[]
   social: SocialUsernameProps
 }
 
-const SideMenu = () => {
+const SideMenu = ({social, links}: SideMenuProps) => {
   const { github, linkedin, youtube } = social
 
   return (
