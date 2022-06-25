@@ -3,6 +3,7 @@ import { json } from "@remix-run/node";
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react';
 import type { SideMenuProps } from "./components/SideMenu";
 import SideMenu from "./components/SideMenu";
+import api from "./services/api";
 
 import styles from './tailwind.css';
 
@@ -24,25 +25,15 @@ type LoaderData = {
 }
 
 export const loader: LoaderFunction = async ({ params }) => {
-  const sideMenuData: SideMenuProps = {
-    links: [
-      { label: "Sobre", to: "about" },
-      { label: "Habilidades", to: "skills" },
-      { label: "Projetos", to: "projects" },
-      { label: "Contatos", to: "contact" },
-    ],
-    social: {
-      linkedin: "mckatoo",
-      github: "mckatoo",
-      youtube: "UCc1e1mclC9o5OnQU87PcU1g",
-    }
-  }
 
-  return json<LoaderData>({ sideMenuData })
+  const {data} = await api.post('/menu', { menu: 'public' })
+
+  return json<LoaderData>({ sideMenuData: data })
 }
 
 export default function App() {
   const { sideMenuData } = useLoaderData<LoaderData>()
+  console.log('sideMenuData:', sideMenuData)
 
   return (
     <html lang="en">
