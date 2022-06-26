@@ -13,7 +13,7 @@ type LoaderData = { profile: GitHubProfile };
 
 export const loader: LoaderFunction = async ({ request }) => {
   const { profile } = await auth.isAuthenticated(request, {
-    failureRedirect: "/admin/login",
+    failureRedirect: "/login",
   });
 
   return json<LoaderData>({ profile });
