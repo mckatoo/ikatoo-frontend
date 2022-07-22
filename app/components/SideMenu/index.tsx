@@ -30,7 +30,7 @@ const SideMenu = ({social, links}: SideMenuProps) => {
           w-fit
           max-w-[13rem]
           z-20
-          h-screen
+          h-full
           bg-slate-800
           flex
           flex-col

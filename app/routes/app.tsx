@@ -17,8 +17,12 @@ export const loader: LoaderFunction = async () => {
 export default () => {
   const { sideMenuData } = useLoaderData<LoaderData>();
   return <>
-    <SideMenu {...sideMenuData} />
+    <div className="h-screen flex flex-cols">
+      <SideMenu {...sideMenuData} />
+      <div className="h-screen overflow-y-auto">
+        <Outlet />
+      </div>
+    </div>
 
-    <Outlet />
   </>
 }
