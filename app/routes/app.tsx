@@ -9,13 +9,14 @@ type LoaderData = {
 
 export const loader: LoaderFunction = async () => {
 
-  const { data } = await api.post('/menu', { menu: 'public' })
+  const { data } = await api.get('/menu/public')
 
   return json<LoaderData>({ sideMenuData: data })
 }
 
 export default () => {
   const { sideMenuData } = useLoaderData<LoaderData>();
+
   return <>
     <div className="h-screen flex flex-cols">
       <SideMenu {...sideMenuData} />
