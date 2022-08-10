@@ -18,8 +18,8 @@ export type SideMenuProps = {
   social: SocialUsernameProps
 }
 
-const SideMenu = ({social, links}: SideMenuProps) => {
-  const { github, linkedin, youtube } = social
+const SideMenu = ({ social, links }: SideMenuProps) => {
+  const { linkedin, github, youtube } = social || {}
 
   return (
     <>
@@ -42,7 +42,7 @@ const SideMenu = ({social, links}: SideMenuProps) => {
 
         <div className="text-lg">
           <ul className="list-reset border-slate-700 border-y-2 divide-y divide-slate-700 font-semibold">
-            {links.map(({ label, to }, index) => (
+            {!!links && links.map(({ label, to }, index) => (
               <li key={index} className="py-4 px-10 w-full">
                 <NavLink prefetch='intent' to={`/${to}`} className={({ isActive }) => isActive ? 'text-mck_aqua' : ''}>
                   <span>{label}</span>
