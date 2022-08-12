@@ -1,7 +1,13 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react';
 
-import type { MetaFunction } from "@remix-run/node";
+import { json, LoaderFunction, MetaFunction } from "@remix-run/node";
 import styles from './tailwind.css';
+import SideMenu, { SideMenuProps } from './components/SideMenu';
+import api from './services/api';
+
+type LoaderData = {
+  sideMenuData: SideMenuProps
+}
 
 export function links() {
   return [
@@ -15,7 +21,16 @@ export const meta: MetaFunction = () => ({
   viewport: "width=device-width,initial-scale=1",
 });
 
-export default function App() {
+export const loader: LoaderFunction = async () => {
+
+  const { data } = await api.get('/menu/public')
+
+  return json<LoaderData>({ sideMenuData: data })
+}
+
+export default () => {
+  const { sideMenuData } = useLoaderData<LoaderData>();
+
   return (
     <html lang="en">
       <head>
@@ -23,11 +38,33 @@ export default function App() {
         <Links />
       </head>
       <body className="text-gray-400 bg-mck_black_light font-body flex">
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
+
+        <div className="h-screen flex flex-cols">
+          <SideMenu {...sideMenuData} />
+          <div className="h-screen overflow-y-auto">
+            <Outlet />
+            <ScrollRestoration />
+            <Scripts />
+            <LiveReload />
+          </div>
+        </div>
       </body>
     </html>
   );
 }
+// export default function App() {
+//   return (
+//     <html lang="en">
+//       <head>
+//         <Meta />
+//         <Links />
+//       </head>
+//       <body className="text-gray-400 bg-mck_black_light font-body flex">
+//         <Outlet />
+//         <ScrollRestoration />
+//         <Scripts />
+//         <LiveReload />
+//       </body>
+//     </html>
+//   );
+// }
