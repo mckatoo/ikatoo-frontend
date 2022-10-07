@@ -46,23 +46,6 @@ export const loader: LoaderFunction = async () => {
       },
     ],
     social: data
-    // social: [
-    //   {
-    //     name: 'Github',
-    //     url: 'https://github.com/mckatoo',
-    //     url_icon: 'images/github.svg'
-    //   },
-    //   {
-    //     name: 'linkedin',
-    //     url: 'https://linkedin.com/in/mckatoo',
-    //     url_icon: 'images/linkedin.svg'
-    //   },
-    //   {
-    //     name: 'youtube',
-    //     url: 'https://www.youtube.com/channel/mckatoo',
-    //     url_icon: 'images/youtube.svg'
-    //   },
-    // ]
   }
 
   return json<LoaderData>({ sideMenuData: menu })
