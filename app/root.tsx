@@ -1,9 +1,11 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react';
 
-import { json, LoaderFunction, MetaFunction } from "@remix-run/node";
-import styles from './tailwind.css';
-import SideMenu, { SideMenuProps } from './components/SideMenu';
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import type { SideMenuProps } from './components/SideMenu';
+import SideMenu from './components/SideMenu';
 import api from './services/api';
+import styles from './tailwind.css';
 
 type LoaderData = {
   sideMenuData: SideMenuProps
@@ -23,12 +25,50 @@ export const meta: MetaFunction = () => ({
 
 export const loader: LoaderFunction = async () => {
 
-  const { data } = await api.get('/menu/public')
+  const { data } = await api.get('/social-links')
+  const menu: SideMenuProps = {
+    links: [
+      {
+        label: 'Sobre',
+        to: 'about'
+      },
+      {
+        label: 'Habilidades',
+        to: 'skills'
+      },
+      {
+        label: 'Projetos',
+        to: 'projects'
+      },
+      {
+        label: 'Contato',
+        to: 'contact'
+      },
+    ],
+    social: data
+    // social: [
+    //   {
+    //     name: 'Github',
+    //     url: 'https://github.com/mckatoo',
+    //     url_icon: 'images/github.svg'
+    //   },
+    //   {
+    //     name: 'linkedin',
+    //     url: 'https://linkedin.com/in/mckatoo',
+    //     url_icon: 'images/linkedin.svg'
+    //   },
+    //   {
+    //     name: 'youtube',
+    //     url: 'https://www.youtube.com/channel/mckatoo',
+    //     url_icon: 'images/youtube.svg'
+    //   },
+    // ]
+  }
 
-  return json<LoaderData>({ sideMenuData: data })
+  return json<LoaderData>({ sideMenuData: menu })
 }
 
-export default () => {
+const App = () => {
   const { sideMenuData } = useLoaderData<LoaderData>();
 
   return (
@@ -52,19 +92,5 @@ export default () => {
     </html>
   );
 }
-// export default function App() {
-//   return (
-//     <html lang="en">
-//       <head>
-//         <Meta />
-//         <Links />
-//       </head>
-//       <body className="text-gray-400 bg-mck_black_light font-body flex">
-//         <Outlet />
-//         <ScrollRestoration />
-//         <Scripts />
-//         <LiveReload />
-//       </body>
-//     </html>
-//   );
-// }
+
+export default App
