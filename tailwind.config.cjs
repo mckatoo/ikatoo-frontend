@@ -1,10 +1,14 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./app/**/*.{ts,tsx,jsx,js}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     fontFamily: {
       'display': ['Oswald', 'Helvetica', 'Arial', 'sans-serif'],
       'body': ['"Open Sans"', 'Helvetica', 'Arial', 'sans-serif'],
-      'indie_flower': ['Indie Flower', 'monospace'] 
+      'indie_flower': ['Indie Flower', 'monospace']
     },
     extend: {
       boxShadow: {
@@ -19,4 +23,4 @@ module.exports = {
     },
   },
   plugins: [],
-};
+}

@@ -1,26 +1,6 @@
-import type { LoaderFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import Logo from "../components/Logo";
 
-import { auth, sessionStorage } from "~/auth.server";
-import Logo from "~/components/Logo";
-
-type LoaderData = {
-  error: { message: string } | null;
-};
-
-export const loader: LoaderFunction = async ({ request }) => {
-  await auth.isAuthenticated(request, { successRedirect: "/admin" });
-  const session = await sessionStorage.getSession(
-    request.headers.get("Cookie")
-  );
-  const error = session.get(auth.sessionErrorKey) as LoaderData["error"];
-  return json<LoaderData>({ error });
-};
-
-export default function Login() {
-  const { error } = useLoaderData<LoaderData>();
-
+export const Login = () => {
   return (
     <section className="h-screen w-screen">
       <div className="container w-96 mx-auto px-6 py-12 h-full">
@@ -84,7 +64,7 @@ export default function Login() {
 
 
             <form method="post" action="/auth/github">
-              {error ? <div>{error.message}</div> : null}
+              {/* {error ? <div>{error.message}</div> : null} */}
               <button
                 className="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3"
                 style={{ backgroundColor: "#3b5998" }}
