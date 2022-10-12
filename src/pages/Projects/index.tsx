@@ -1,8 +1,4 @@
-import type { LoaderFunction, MetaFunction } from "@remix-run/node";
-import type { CardProps } from '~/components/Card';
-import Card from '~/components/Card';
-
-import { useLoaderData } from '@remix-run/react';
+import Card, { CardProps } from "../../components/Card"
 
 type ProjectProps = {
   snapshot: string
@@ -10,7 +6,7 @@ type ProjectProps = {
   githubLink?: string
 }
 
-export const loader: LoaderFunction = async ({ params, request }) => {
+export const Projects = () => {
   const projects: ProjectProps[] = [
     {
       snapshot: '/images/snap-calm.png',
@@ -30,33 +26,7 @@ export const loader: LoaderFunction = async ({ params, request }) => {
       },
       githubLink: 'https://github.com/mckatoo/ikatoo-frontend'
     },
-    // {
-    //   snapshot: '/images/snap-calm.png',
-    //   description: {
-    //     title: 'Calm Organizador de Criptomoedas',
-    //     subTitle: '2022 - 03',
-    //     content: 'Projeto pessoal para estudo.',
-    //   }
-    // },
-    // {
-    //   snapshot: '/images/snap-calm.png',
-    //   description: {
-    //     title: 'Calm Organizador de Criptomoedas',
-    //     subTitle: '2022 - 03',
-    //     content: 'Projeto pessoal para estudo.',
-    //   }
-    // },
   ]
-
-  return projects
-}
-
-export const meta: MetaFunction = () => ({
-  title: "Milton Carlos Katoo - Projetos"
-})
-
-export default () => {
-  const projects = useLoaderData<ProjectProps[]>()
 
   return <div className="flex flex-row bg-mck_black_light min-h-screen h-full w-full">
     <div className='flex flex-row items-start ml-4 mt-4'>
