@@ -1,5 +1,4 @@
-import { NavLink } from '@remix-run/react'
-
+import { NavLink } from 'react-router-dom'
 import Logo from '../Logo'
 
 type SideMenuItem = {
@@ -42,8 +41,8 @@ const SideMenu = ({ social, links }: SideMenuProps) => {
           <ul className="list-reset border-slate-700 border-y-2 divide-y divide-slate-700 font-semibold">
             {!!links.length && links.map(({ label, to }, index) => (
               <li key={index} className="py-4 px-10 w-full">
-                <NavLink prefetch='intent' to={`/${to}`} className={({ isActive }) => isActive ? 'text-mck_aqua' : ''}>
-                  <span>{label}</span>
+                <NavLink to={to} className={({ isActive }) => isActive ? 'text-mck_aqua' : 'text-gray-500'}>
+                  {label}
                 </NavLink>
               </li>
             ))}

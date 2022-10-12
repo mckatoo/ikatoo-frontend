@@ -1,10 +1,6 @@
-import type { LoaderFunction, MetaFunction } from '@remix-run/node';
-import type { CardProps } from '~/components/Card';
-import Card from '~/components/Card';
-import ProgressBar from '~/components/ProgressBar';
-import { TextContainer } from '~/components/TextContainer';
-
-import { useLoaderData } from '@remix-run/react';
+import Card, { CardProps } from "../components/Card"
+import ProgressBar from "../components/ProgressBar"
+import { TextContainer } from "../components/TextContainer"
 
 type SkillsProps = {
   title: string
@@ -21,8 +17,8 @@ type SkillsProps = {
   }[]
 }
 
-export const loader: LoaderFunction = async ({ params }) => {
-  const skills: SkillsProps = {
+export const Skills = () => {
+  const skillsPage: SkillsProps = {
     title: 'Habilidades e Experiências',
     description: `<p>Trabalhei como programador em VBA usando o MS Access em 2003, logo após formado no curso técnico do SENAC. Não dei muita sorte pois a empresa fechou 3 meses após eu entrar.</p>
     <p>Precisando de emprego mudei de área, fui trabalhar em uma grande indústria farmacêutica da cidade e lá fiquei durante 7 anos trabalhando como operador de máquinas na produção de medicamentos injetáveis, mas sempre com um pézinho na programação. Lá eu criei um programa em Delphi 7 com banco em MS Access para controle de produção de medicamentos liofilizados que utilizávamos para melhorar o fluxo de produção do setor e diminuir o tempo nos processos de fabricação.</p>
@@ -56,16 +52,7 @@ export const loader: LoaderFunction = async ({ params }) => {
       },
     ]
   }
-
-  return skills
-}
-
-export const meta: MetaFunction = () => ({
-  title: "Milton Carlos Katoo - Desenvolvedor Web"
-})
-
-export default () => {
-  const { description, title, skills, lastJobs } = useLoaderData<SkillsProps>()
+  const { description, title, skills, lastJobs } = skillsPage
 
   return <div className="flex flex-row min-h-fit h-full w-full">
     <div className='flex flex-row items-start ml-4 mt-4'>

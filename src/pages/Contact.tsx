@@ -1,18 +1,14 @@
-import type { LoaderFunction, MetaFunction } from '@remix-run/node'
-import Map from '~/components/Map'
-import { TextContainer } from '~/components/TextContainer'
+import { FormEvent } from "react"
+import Map, { LocalizationType } from "../components/Map"
+import { TextContainer } from "../components/TextContainer"
 
-import { useLoaderData } from '@remix-run/react'
-
-import type { FormEvent } from 'react'
-import type { LocalizationType } from '~/components/Map'
 type ContactProps = {
   title: string
   description: string
   localization?: LocalizationType
 }
 
-export const loader: LoaderFunction = async ({ params }) => {
+export const Contact = () => {
   const contact: ContactProps = {
     title: 'Entre em contato 😄',
     description: `Estou interessado em oportunidades CLT, mas não descarto nenhum tipo de trabalho desde que me traga oportunidades de aprendizado. No entanto, se você tiver outra solicitação ou pergunta, não hesite em enviar um email. <a href="mailto:mckatoo@gmail.com?Subject=Contato%20pelo%20site">mckatoo@gmail.com</a>`,
@@ -21,16 +17,7 @@ export const loader: LoaderFunction = async ({ params }) => {
       lng: -46.830700405308185
     }
   }
-
-  return contact
-}
-
-export const meta: MetaFunction = () => ({
-  title: "Milton Carlos Katoo - Contato"
-})
-
-export default () => {
-  const { description, title, localization } = useLoaderData<ContactProps>()
+  const { description, title, localization } = contact
 
   const sendMessage = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
