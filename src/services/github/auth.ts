@@ -4,7 +4,7 @@ const auth = () => {
     ['response_type', 'code'],
     ['scope', 'user public_repo'],
     ['client_id', `${import.meta.env.VITE_GITHUB_CLIENT_ID}`],
-    ['state', 'test-t5']
+    ['redirect_uri', `${import.meta.env.VITE_REDIRECT_URL}`]
   ]).toString()
   const url = `${GITHUB_AUTH_URL}?${params}`
   window.location.assign(url)
