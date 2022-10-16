@@ -28,7 +28,7 @@ const useIcons = (slugs: string[]) => {
     }))
   }
 
-  return <div>Loading</div>
+  return [<div>Loading</div>]
 }
 
 type IconCloudProps = {
