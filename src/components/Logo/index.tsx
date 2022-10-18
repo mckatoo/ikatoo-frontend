@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export type LogoProps = {
   mobileSize?: boolean
   id?: string
@@ -7,7 +9,7 @@ export type LogoProps = {
 
 const Logo = ({ mobileSize = false, name, description }: LogoProps) => {
   return (
-    <div className="flex flex-col place-items-center">
+    <Link to={'/'} className="text-gray-500 w-fit h-fit flex flex-col place-items-center">
       {mobileSize
         ? <svg
           viewBox="0 0 152 152"
@@ -100,7 +102,7 @@ const Logo = ({ mobileSize = false, name, description }: LogoProps) => {
       }
       {!!name && <p className="font-semibold">{name}</p>}
       {!!description && <span className="text-sm text-gray-500">{description}</span>}
-    </div>
+    </Link>
   )
 }
 
