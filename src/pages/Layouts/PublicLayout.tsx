@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom"
-import SideMenu, { SideMenuProps } from "./components/SideMenu"
+import SideMenu, { SideMenuProps } from "../../components/SideMenu"
 
 export const PublicLayout = () => {
   const menu: SideMenuProps = {
