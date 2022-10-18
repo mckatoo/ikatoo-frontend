@@ -20,7 +20,7 @@ export type SideMenuProps = {
 const SideMenu = ({ social, links }: SideMenuProps) => {
 
   const getStyle = (to: string, isActive: boolean) => {
-    const isRoot = to === 'about' && window.location.pathname === '/'
+    const isRoot = to === 'about' && (window.location.pathname === '/' || /^\/admin\/?$/gm.test(window.location.pathname))
     return isActive || isRoot ? 'text-mck_aqua' : 'text-gray-500'
   }
 
