@@ -14,7 +14,7 @@ const Alert = ({ title, type }: AlertProps) => {
   const [closedStyle, setClosedStyle] = useState('');
 
   return (
-    <div className={`${closedStyle} w-full ${colors[type]} text-sm shadow-lg dark:bg-gray-900`} role="alert">
+    <div className={`${closedStyle} fixed w-screen z-50 ${colors[type]} text-sm shadow-lg dark:bg-gray-900`} role="alert">
       <div className="flex p-1">
         <span className="w-full text-center">
           {title}
