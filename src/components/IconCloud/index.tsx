@@ -39,7 +39,7 @@ const IconCloud = ({ slugs }: IconCloudProps) => {
   const icons = useIcons(slugs)
 
   return <Cloud id='canvas'>
-    {icons}
+    {icons.map((icon, index) => <div key={index}>{icon}</div>)}
   </Cloud>
 }
 
