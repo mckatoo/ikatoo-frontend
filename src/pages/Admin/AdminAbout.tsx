@@ -6,7 +6,6 @@ import { TextContainer } from "../../components/TextContainer";
 export const AdminAbout = () => {
 
   const user: SessionProps = {
-    email: 'teste@teste.com',
     avatar: {
       url: 'https://avatars.githubusercontent.com/u/7876852?s=40&v=4',
       alt: 'Milton and the daughter.'
