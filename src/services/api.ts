@@ -16,7 +16,7 @@ const githubAuth = async (code: string) => {
 
 const siginWithToken = async (token: string) => {
   const response = await api.post<AuthResponseType>(
-    '/auth/refresh-token',
+    '/auth/access_token',
     `bearer ${token}`
   )
   return response.data
