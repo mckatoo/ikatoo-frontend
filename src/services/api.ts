@@ -22,17 +22,7 @@ const siginWithToken = async (token: string) => {
   return response.data
 }
 
-const signin = async ({ username, email, password }: SignInProps) => {
-  return <AuthResponseType>{
-    user: {
-      id: '123456',
-      name: 'José',
-      username: 'jose',
-      email: 'jose@teste.com'
-    },
-    accessToken: '123456789',
-    refreshToken: '123456789'
-  }
+const signIn = async ({ username, email, password }: SignInProps) => {
   const response = await api.post<AuthResponseType>('/auth', {
     email,
     username,
@@ -41,15 +31,14 @@ const signin = async ({ username, email, password }: SignInProps) => {
   return response.data
 }
 
-const signout = async () => {
+const signOut = async () => {
+  // await api.post('/auth/signout')
   return
-  const response = await api.post('/auth/signout')
-  return response.data
 }
 
 export default {
   githubAuth,
   siginWithToken,
-  signin,
-  signout
+  signIn,
+  signOut
 }

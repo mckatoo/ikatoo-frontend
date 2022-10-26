@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./contexts/Auth/AuthProvider";
+import { RequireAuth } from "./contexts/Auth/RequireAuth";
 import { About } from "./pages/About";
 import { AdminAbout } from "./pages/Admin/AdminAbout";
 import { AdminSkills } from "./pages/Admin/AdminSkills";
@@ -13,8 +14,8 @@ import { Skills } from "./pages/Skills";
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<PublicLayout />}>
@@ -24,15 +25,15 @@ function App() {
             <Route path="contact" element={<Contact />} />
             <Route path="projects" element={<Projects />} />
           </Route>
-          <Route path="/admin" element={<PrivateLayout />}>
+          <Route path="/admin" element={<RequireAuth><PrivateLayout /></RequireAuth>}>
             <Route index element={<AdminAbout />} />
             <Route path="about" element={<AdminAbout />} />
             <Route path="skills" element={<AdminSkills />} />
           </Route>
           <Route path="/*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+      </AuthProvider>
+    </BrowserRouter>
   )
 }
 

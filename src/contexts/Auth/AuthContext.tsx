@@ -5,9 +5,8 @@ import { User } from "../../types/User";
 export type AuthContextType = {
   user: User | null
   error: string | null
-  signin: ({ username, email, password }: SignInProps) => Promise<boolean>
-  githubAuth: (code: string) => Promise<boolean>
-  signout: () => void
+  signIn: ({ username, email, password }: SignInProps) => Promise<boolean>
+  signOut: () => void
 }
 
 export const AuthContext = createContext<AuthContextType>(null!)
