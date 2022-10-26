@@ -1,5 +1,5 @@
-import { Outlet } from "react-router-dom"
-import SideMenu, { SideMenuProps } from "../../components/SideMenu"
+import { Outlet } from "react-router-dom";
+import SideMenu, { SideMenuProps } from "../../components/SideMenu";
 
 export const PrivateLayout = () => {
   const menu: SideMenuProps = {
