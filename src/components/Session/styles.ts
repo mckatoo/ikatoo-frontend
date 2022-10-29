@@ -1,4 +1,3 @@
-import { css } from 'styled-components'
 import tw from 'tailwind-styled-components'
 
 export const Wrapper = tw.div`
@@ -49,9 +48,10 @@ export const Item = tw.span`
 `
 
 export const ImageWrapper = tw.div`
-  
+  h-8
 `
 
 export const Image = tw.img`
   rounded-full
+  h-8
 `

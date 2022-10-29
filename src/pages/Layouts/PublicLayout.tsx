@@ -1,7 +1,13 @@
-import { Outlet } from "react-router-dom"
-import SideMenu, { SideMenuProps } from "../../components/SideMenu"
+import { useContext } from 'react'
+import { Outlet } from 'react-router-dom'
+
+import Session from '../../components/Session'
+import SideMenu, { SideMenuProps } from '../../components/SideMenu'
+import { AuthContext } from '../../contexts/Auth/AuthContext'
 
 export const PublicLayout = () => {
+  const auth = useContext(AuthContext)
+
   const menu: SideMenuProps = {
     links: [
       {
@@ -42,6 +48,7 @@ export const PublicLayout = () => {
 
   return (
     <div className="h-screen flex flex-cols">
+      {!!auth.user && <Session />}
       <SideMenu {...menu} />
       <div className="h-screen overflow-y-auto">
         <Outlet />

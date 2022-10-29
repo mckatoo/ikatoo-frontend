@@ -1,4 +1,4 @@
-import { FormWrapper, Wrapper } from "./styles"
+import { FormWrapper, Wrapper } from './styles'
 
 type BodyContainerProps = {
   children: React.ReactNode

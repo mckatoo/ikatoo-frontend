@@ -1,5 +1,6 @@
-import { InputHTMLAttributes, useState } from "react";
-import * as S from "./styles";
+import { InputHTMLAttributes } from 'react'
+
+import * as S from './styles'
 
 export type TextInputProps = InputHTMLAttributes<HTMLInputElement>
 

@@ -1,6 +1,7 @@
-import { createContext } from "react";
-import { SignInProps } from "../../types/Auth";
-import { User } from "../../types/User";
+import { createContext } from 'react'
+
+import { SignInProps } from '../../types/Auth'
+import { User } from '../../types/User'
 
 export type AuthContextType = {
   user: User | null

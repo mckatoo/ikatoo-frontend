@@ -1,10 +1,11 @@
-import { useContext, useState } from "react";
-import { FieldValues, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import Alert from "../components/Alert";
-import Logo from "../components/Logo";
-import { AuthContext } from "../contexts/Auth/AuthContext";
-import githubAuth from "../services/github/githubAuth";
+import { useContext, useState } from 'react'
+import { FieldValues, useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
+
+import Alert from '../components/Alert'
+import Logo from '../components/Logo'
+import { AuthContext } from '../contexts/Auth/AuthContext'
+import githubAuth from '../services/github/githubAuth'
 
 export const Login = () => {
   const auth = useContext(AuthContext)
