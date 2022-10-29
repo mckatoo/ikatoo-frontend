@@ -1,5 +1,5 @@
-import { FormContainer } from "../../components/FormContainer";
-import { TextContainer } from "../../components/TextContainer";
+import { FormContainer } from '../../components/FormContainer'
+import { TextContainer } from '../../components/TextContainer'
 
 export const AdminSkills = () => {
 

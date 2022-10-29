@@ -1,4 +1,4 @@
-import Card, { CardProps } from "../../components/Card"
+import Card, { CardProps } from '../../components/Card'
 
 type ProjectProps = {
   snapshot: string

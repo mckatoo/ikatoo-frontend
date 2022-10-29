@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import api from "../../services/api";
-import { SignInProps } from "../../types/Auth";
-import { User } from "../../types/User";
-import { AuthContext } from "./AuthContext";
-import { setLocalStorageToken } from "./setLocalStorageToken";
+import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+
+import api from '../../services/api'
+import { SignInProps } from '../../types/Auth'
+import { User } from '../../types/User'
+import { AuthContext } from './AuthContext'
+import { setLocalStorageToken } from './setLocalStorageToken'
 
 type AuthProviderProps = {
   children: JSX.Element
@@ -41,12 +42,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const validateToken = async () => {
       const token = localStorage.getItem('IKATOO_AuthToken')
       if (!!token) {
-        const data = await api.siginWithToken(token)
-        if (!!data.user) {
-          setUser(data.user)
-          location.pathname === '/login'
-            ? navigate('/admin')
-            : navigate(location.pathname)
+        try {
+          const data = await api.siginWithToken(token)
+          if (!!data.user) {
+            setUser(data.user)
+            location.pathname === '/login'
+              ? navigate('/admin')
+              : navigate(location.pathname)
+          }
+        } catch (error) {
+          console.error(error)
+          signOut()
         }
       }
     }

@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import type { SimpleIcon } from 'react-icon-cloud';
-import { Cloud, fetchSimpleIcons, renderSimpleIcon } from 'react-icon-cloud';
+import { useEffect, useState } from 'react'
+import { Cloud, fetchSimpleIcons, renderSimpleIcon } from 'react-icon-cloud'
 
+import type { SimpleIcon } from 'react-icon-cloud';
 type FetchSimpleIconsProps = {
   simpleIcons: Record<string, SimpleIcon>;
   allIcon: Record<string, {

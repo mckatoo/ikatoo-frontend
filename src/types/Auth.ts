@@ -1,10 +1,7 @@
+import { User } from './User'
+
 export type AuthResponseType = {
-  user: {
-    id: string
-    name: string
-    username: string
-    email: string
-  }
+  user: Omit<User, 'password'>
   accessToken: string
   refreshToken: string
 }

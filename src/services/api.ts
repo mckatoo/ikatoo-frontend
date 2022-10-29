@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 import { AuthResponseType, SignInProps } from '../types/Auth'
 
 const API_URL = import.meta.env.VITE_API_URL
@@ -16,8 +17,13 @@ const githubAuth = async (code: string) => {
 
 const siginWithToken = async (token: string) => {
   const response = await api.post<AuthResponseType>(
-    '/auth/access_token',
-    `bearer ${token}`
+    '/auth/access-token',
+    {},
+    {
+      headers: {
+        Authorization: `bearer ${token}`
+      }
+    }
   )
   return response.data
 }

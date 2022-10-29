@@ -1,6 +1,7 @@
-import { FormEvent } from "react"
-import Map, { LocalizationType } from "../components/Map"
-import { TextContainer } from "../components/TextContainer"
+import { FormEvent } from 'react'
+
+import Map, { LocalizationType } from '../components/Map'
+import { TextContainer } from '../components/TextContainer'
 
 type ContactProps = {
   title: string
