@@ -1,11 +1,10 @@
 import { useContext } from 'react'
 import { Outlet } from 'react-router-dom'
+import Session from '../../../components/Session'
+import SideMenu, { SideMenuProps } from '../../../components/SideMenu'
+import { AuthContext } from '../../../contexts/Auth/AuthContext'
 
-import Session from '../../components/Session'
-import SideMenu, { SideMenuProps } from '../../components/SideMenu'
-import { AuthContext } from '../../contexts/Auth/AuthContext'
-
-export const PrivateLayout = () => {
+export const PublicLayout = () => {
   const auth = useContext(AuthContext)
 
   const menu: SideMenuProps = {

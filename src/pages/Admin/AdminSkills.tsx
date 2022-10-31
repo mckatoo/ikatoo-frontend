@@ -7,7 +7,7 @@ export const AdminSkills = () => {
       <div className="flex flex-row items-start ml-4 mt-4">
         <div className="flex flex-row w-1/2">
           <TextContainer title={'Informações sobre você.'}>
-            <FormContainer></FormContainer>
+            <FormContainer>form</FormContainer>
           </TextContainer>
         </div>
       </div>
