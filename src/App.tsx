@@ -9,7 +9,7 @@ import { Contact } from './pages/Contact'
 import { PrivateLayout } from './pages/Layouts/PrivateLayout'
 import { PublicLayout } from './pages/Layouts/PublicLayout'
 import { Login } from './pages/Login'
-import { NotFound } from './pages/NotFound'
+import { NotFound } from './pages/'
 import { Projects } from './pages/Projects'
 import { Skills } from './pages/Skills'
 
