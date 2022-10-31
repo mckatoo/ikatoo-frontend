@@ -10,4 +10,4 @@ export type AuthContextType = {
   signOut: () => void
 }
 
-export const AuthContext = createContext<AuthContextType>(null!)
+export const AuthContext = createContext<AuthContextType>({} as AuthContextType)

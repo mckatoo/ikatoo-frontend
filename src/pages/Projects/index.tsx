@@ -13,7 +13,7 @@ export const Projects = () => {
       description: {
         title: 'Calm Organizador de Criptomoedas',
         subTitle: 'Last update: 2022 - 03',
-        content: 'Personal project for learn nextjs.',
+        content: 'Personal project for learn nextjs.'
       },
       githubLink: 'https://github.com/mckatoo/calm'
     },
@@ -22,21 +22,21 @@ export const Projects = () => {
       description: {
         title: 'iKatoo - Site pessoal',
         subTitle: 'Last update: 2022 - 08',
-        content: 'Personal Web Site.',
+        content: 'Personal Web Site.'
       },
       githubLink: 'https://github.com/mckatoo/ikatoo-frontend'
-    },
+    }
   ]
 
-  return <div className="flex flex-row bg-mck_black_light min-h-screen h-full w-full">
-    <div className='flex flex-row items-start ml-4 mt-4'>
-      <div className='flex flex-row w-full'>
-        <div className="flex flex-col gap-4 divide-y divide-slate-700">
-          {
-            projects.map(({ description, snapshot, githubLink }, index) => {
-              const renderProjects = () => <div key={index} className="flex flex-row pt-4">
-                {
-                  (index % 2) === 0 ? (
+  return (
+    <div className="flex flex-row bg-mck_black_light min-h-screen h-full w-full">
+      <div className="flex flex-row items-start ml-4 mt-4">
+        <div className="flex flex-row w-full">
+          <div className="flex flex-col gap-4 divide-y divide-slate-700">
+            {projects.map(({ description, snapshot, githubLink }, index) => {
+              const renderProjects = () => (
+                <div key={index} className="flex flex-row pt-4">
+                  {index % 2 === 0 ? (
                     <>
                       <div className="w-1/2 flex justify-center items-center">
                         <Card {...description} />
@@ -54,23 +54,21 @@ export const Projects = () => {
                         <Card {...description} />
                       </div>
                     </>
-                  )
-                }
-              </div>
+                  )}
+                </div>
+              )
 
               return !githubLink ? (
-                <div key={index}>
-                  {renderProjects()}
-                </div>
+                <div key={index}>{renderProjects()}</div>
               ) : (
                 <a key={index} href={githubLink}>
                   {renderProjects()}
                 </a>
               )
-            })
-          }
+            })}
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  )
 }

@@ -30,68 +30,78 @@ export const Skills = () => {
       { skillTitle: 'Back-end', rankPercent: 20 },
       { skillTitle: 'Modelagem de dados', rankPercent: 30 },
       { skillTitle: 'Front-end', rankPercent: 70 },
-      { skillTitle: 'Trabalho em equipe', rankPercent: 85 },
+      { skillTitle: 'Trabalho em equipe', rankPercent: 85 }
     ],
     lastJobs: [
       {
         jobTitle: 'Calm Organizador de Criptomoedas',
         jobDescription: 'Projeto pessoal para estudo.',
-        yearMonthStart: '2022 - 03',
+        yearMonthStart: '2022 - 03'
       },
       {
         jobTitle: 'Uniesi - Centro Universitário de Itapira',
-        jobDescription: 'Responsável pela infraestrutura local e suporte dos serviços dispostos pela mantenedora UNIP.',
+        jobDescription:
+          'Responsável pela infraestrutura local e suporte dos serviços dispostos pela mantenedora UNIP.',
         yearMonthStart: '2013 - 06',
         yearMonthEnd: '2021 - 07'
       },
       {
         jobTitle: 'Itacom Veículos',
-        jobDescription: 'Desenvolvimento do módulo venda de veículos do sistema de gerenciamento geral.',
+        jobDescription:
+          'Desenvolvimento do módulo venda de veículos do sistema de gerenciamento geral.',
         yearMonthStart: '2003 - 10',
         yearMonthEnd: '2003 - 12'
-      },
+      }
     ]
   }
   const { description, title, skills, lastJobs } = skillsPage
 
-  return <div className="flex flex-row min-h-fit h-full w-full">
-    <div className='flex flex-row items-start ml-4 mt-4'>
-      <div className='flex flex-row w-1/2'>
-        {!!title && (
-          <TextContainer title={title}>
-            <div dangerouslySetInnerHTML={{ __html: description }} />
-          </TextContainer>
-        )}
-      </div>
+  return (
+    <div className="flex flex-row min-h-fit h-full w-full">
+      <div className="flex flex-row items-start ml-4 mt-4">
+        <div className="flex flex-row w-1/2">
+          {!!title && (
+            <TextContainer title={title}>
+              <div dangerouslySetInnerHTML={{ __html: description }} />
+            </TextContainer>
+          )}
+        </div>
 
-      {
-        !!(!!skills.length || !!lastJobs.length) && (
-          <div className='flex flex-col gap-16 w-1/2 h-full mt-20 m-4'>
+        {!!(!!skills.length || !!lastJobs.length) && (
+          <div className="flex flex-col gap-16 w-1/2 h-full mt-20 m-4">
             {!!skills.length && (
-              <div className='w-full flex flex-col gap-4'>
+              <div className="w-full flex flex-col gap-4">
                 {skills.map(({ skillTitle, rankPercent }, index) => (
-                  <ProgressBar key={index} label={skillTitle} percent={rankPercent} />
+                  <ProgressBar
+                    key={index}
+                    label={skillTitle}
+                    percent={rankPercent}
+                  />
                 ))}
               </div>
             )}
 
             {!!lastJobs.length && (
-              <div className='w-full flex flex-wrap justify-center gap-4'>
-                {lastJobs.map(({ jobTitle, jobDescription, yearMonthStart, yearMonthEnd }, index) => {
-                  const content: CardProps = {
-                    title: jobTitle,
-                    subTitle: `${yearMonthStart} | ${yearMonthEnd || 'Hoje'}`,
-                    content: jobDescription
-                  }
+              <div className="w-full flex flex-wrap justify-center gap-4">
+                {lastJobs.map(
+                  (
+                    { jobTitle, jobDescription, yearMonthStart, yearMonthEnd },
+                    index
+                  ) => {
+                    const content: CardProps = {
+                      title: jobTitle,
+                      subTitle: `${yearMonthStart} | ${yearMonthEnd || 'Hoje'}`,
+                      content: jobDescription
+                    }
 
-                  return <Card key={index} {...content} />
-                }
+                    return <Card key={index} {...content} />
+                  }
                 )}
               </div>
             )}
           </div>
-        )
-      }
+        )}
+      </div>
     </div>
-  </div>
+  )
 }

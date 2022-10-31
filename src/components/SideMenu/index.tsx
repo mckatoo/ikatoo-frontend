@@ -19,9 +19,11 @@ export type SideMenuProps = {
 }
 
 const SideMenu = ({ social, links }: SideMenuProps) => {
-
   const getStyle = (to: string, isActive: boolean) => {
-    const isRoot = to === 'about' && (window.location.pathname === '/' || /^\/admin\/?$/gm.test(window.location.pathname))
+    const isRoot =
+      to === 'about' &&
+      (window.location.pathname === '/' ||
+        /^\/admin\/?$/gm.test(window.location.pathname))
     return isActive || isRoot ? 'text-mck_aqua' : 'text-gray-500'
   }
 
@@ -39,33 +41,46 @@ const SideMenu = ({ social, links }: SideMenuProps) => {
           flex
           flex-col
           justify-between
-      ">
+      "
+      >
         <div className="z-30 flex justify-center px-4 py-8 bg-mck_black">
-          <Logo aria-label="Logotipo" name="Milton Carlos Katoo" description="Software Developer" />
+          <Logo
+            aria-label="Logotipo"
+            name="Milton Carlos Katoo"
+            description="Software Developer"
+          />
         </div>
 
         <div className="text-lg">
           <ul className="list-reset border-slate-700 border-y-2 divide-y divide-slate-700 font-semibold">
-            {!!links.length && links.map(({ label, to }, index) => (
-              <li key={index} className="py-4 px-10 w-full">
-                <NavLink to={to} className={({ isActive }) => getStyle(to, isActive)}>
-                  {label}
-                </NavLink>
-              </li>
-            ))}
+            {!!links.length &&
+              links.map(({ label, to }, index) => (
+                <li key={index} className="py-4 px-10 w-full">
+                  <NavLink
+                    to={to}
+                    className={({ isActive }) => getStyle(to, isActive)}
+                  >
+                    {label}
+                  </NavLink>
+                </li>
+              ))}
           </ul>
         </div>
 
         <div className="flex flex-row justify-around py-2">
-          {
-            !!social.length && social.map((social, index) => (
+          {!!social.length &&
+            social.map((social, index) => (
               <div key={index} className="w-6">
-                <a className='text-slate-100' href={social.url} target="_blank" rel="noreferrer">
+                <a
+                  className="text-slate-100"
+                  href={social.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <img src={social.url_icon} alt={social.name} />
                 </a>
               </div>
-            ))
-          }
+            ))}
         </div>
       </menu>
     </>
