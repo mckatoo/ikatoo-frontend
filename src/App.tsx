@@ -26,7 +26,14 @@ function App() {
             <Route path="contact" element={<Contact />} />
             <Route path="projects" element={<Projects />} />
           </Route>
-          <Route path="/admin" element={<RequireAuth><PrivateLayout /></RequireAuth>}>
+          <Route
+            path="/admin"
+            element={
+              <RequireAuth>
+                <PrivateLayout />
+              </RequireAuth>
+            }
+          >
             <Route index element={<AdminAbout />} />
             <Route path="about" element={<AdminAbout />} />
             <Route path="skills" element={<AdminSkills />} />

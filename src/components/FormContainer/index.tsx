@@ -6,8 +6,6 @@ type BodyContainerProps = {
 
 export const FormContainer = ({ children }: BodyContainerProps) => (
   <Wrapper>
-    <FormWrapper>
-      {children}
-    </FormWrapper>
+    <FormWrapper>{children}</FormWrapper>
   </Wrapper>
 )

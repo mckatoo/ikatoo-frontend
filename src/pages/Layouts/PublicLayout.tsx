@@ -25,24 +25,24 @@ export const PublicLayout = () => {
       {
         label: 'Contato',
         to: 'contact'
-      },
+      }
     ],
     social: [
       {
-        name: "github",
-        url: "https://github.com/mckatoo",
-        url_icon: "/images/github.svg"
+        name: 'github',
+        url: 'https://github.com/mckatoo',
+        url_icon: '/images/github.svg'
       },
       {
-        name: "youtube",
-        url: "https://youtube.com/mckatoo",
-        url_icon: "/images/youtube.svg"
+        name: 'youtube',
+        url: 'https://youtube.com/mckatoo',
+        url_icon: '/images/youtube.svg'
       },
       {
-        name: "linkedin",
-        url: "https://linkedin.com/mckatoo",
-        url_icon: "/images/linkedin.svg"
-      },
+        name: 'linkedin',
+        url: 'https://linkedin.com/mckatoo',
+        url_icon: '/images/linkedin.svg'
+      }
     ]
   }
 

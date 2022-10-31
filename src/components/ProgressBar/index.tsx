@@ -6,8 +6,8 @@ export type ProgressBarProps = {
 const ProgressBar = ({ label, percent }: ProgressBarProps) => (
   <div className="flex flex-col gap-1">
     <span>{label}</span>
-    <div className='h-px bg-slate-600'>
-      <div className='h-full bg-mck_aqua' style={{ width: `${percent}%` }} />
+    <div className="h-px bg-slate-600">
+      <div className="h-full bg-mck_aqua" style={{ width: `${percent}%` }} />
     </div>
   </div>
 )

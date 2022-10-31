@@ -1,5 +1,3 @@
-import { FormEvent } from 'react'
-
 import Map, { LocalizationType } from '../components/Map'
 import { TextContainer } from '../components/TextContainer'
 
@@ -20,30 +18,32 @@ export const Contact = () => {
   }
   const { description, title, localization } = contact
 
-  const sendMessage = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log('send message:' + e.target)
-  }
+  return (
+    <div className="flex flex-row min-h-fit h-full w-full">
+      <div className="flex flex-row items-start ml-4 mt-4">
+        <div className="flex h-full w-1/2">
+          {
+            <TextContainer title={title}>
+              <div dangerouslySetInnerHTML={{ __html: description }} />
+            </TextContainer>
+          }
+        </div>
 
-  return <div className="flex flex-row min-h-fit h-full w-full">
-    <div className='flex flex-row items-start ml-4 mt-4'>
-      <div className='flex h-full w-1/2'>
-        {
-          <TextContainer title={title}>
-            <div dangerouslySetInnerHTML={{ __html: description }} />
-          </TextContainer>
-        }
-      </div>
-
-      {
-        !!localization && (
-          <div className='flex h-full w-1/2 mt-20 m-4'>
+        {!!localization && (
+          <div className="flex h-full w-1/2 mt-20 m-4">
             {
-              <Map center={localization} label={{ text: 'Milton Carlos Katoo', className: '-mt-10 bg-slate-700 p-1 rounded', color: 'white' }} />
+              <Map
+                center={localization}
+                label={{
+                  text: 'Milton Carlos Katoo',
+                  className: '-mt-10 bg-slate-700 p-1 rounded',
+                  color: 'white'
+                }}
+              />
             }
           </div>
-        )
-      }
+        )}
+      </div>
     </div>
-  </div>
+  )
 }

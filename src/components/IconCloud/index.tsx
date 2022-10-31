@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Cloud, fetchSimpleIcons, renderSimpleIcon } from 'react-icon-cloud'
 
-import type { SimpleIcon } from 'react-icon-cloud';
+import type { SimpleIcon } from 'react-icon-cloud'
 type FetchSimpleIconsProps = {
-  simpleIcons: Record<string, SimpleIcon>;
-  allIcon: Record<string, {
-    title: string;
-    hex: string;
-    slug: string;
-  }>;
+  simpleIcons: Record<string, SimpleIcon>
+  allIcon: Record<
+    string,
+    {
+      title: string
+      hex: string
+      slug: string
+    }
+  >
 }
 
 const useIcons = (slugs: string[]) => {
@@ -19,28 +22,34 @@ const useIcons = (slugs: string[]) => {
   }, [slugs])
 
   if (icons) {
-    return Object.values(icons.simpleIcons).map((icon) => renderSimpleIcon({
-      icon,
-      size: 100,
-      aProps: {
-        onClick: (e: any) => e.preventDefault()
-      }
-    }))
+    return Object.values(icons.simpleIcons).map((icon) =>
+      renderSimpleIcon({
+        icon,
+        size: 100,
+        aProps: {
+          onClick: (e) => e.preventDefault()
+        }
+      })
+    )
   }
 
-  return [<div>Loading</div>]
+  return []
 }
 
 type IconCloudProps = {
-  slugs: string[];
+  slugs: string[]
 }
 
 const IconCloud = ({ slugs }: IconCloudProps) => {
   const icons = useIcons(slugs)
 
-  return <Cloud id='canvas'>
-    {icons.map((icon, index) => <div key={index}>{icon}</div>)}
-  </Cloud>
+  return (
+    <Cloud id="canvas">
+      {icons.map((icon, index) => (
+        <div key={index}>{icon}</div>
+      ))}
+    </Cloud>
+  )
 }
 
 export default IconCloud

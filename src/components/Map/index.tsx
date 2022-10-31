@@ -12,9 +12,7 @@ export type MapProps = {
   label?: LabelMarkerOptions
 }
 
-
 const Map = ({ center, label }: MapProps) => {
-
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: ''
@@ -28,7 +26,9 @@ const Map = ({ center, label }: MapProps) => {
     >
       <Marker position={center} options={{ label }} />
     </GoogleMap>
-  ) : <></>
+  ) : (
+    <></>
+  )
 }
 
 export default Map
