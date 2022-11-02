@@ -10,6 +10,7 @@ export type LogoProps = {
 const Logo = ({ mobileSize = false, name, description }: LogoProps) => {
   return (
     <Link
+      aria-label="Logotipo"
       to={'/'}
       className="text-gray-500 w-fit h-fit flex flex-col place-items-center"
     >

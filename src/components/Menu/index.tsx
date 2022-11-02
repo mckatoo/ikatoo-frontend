@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import SVG from 'react-inlinesvg'
 import Logo from '../Logo'
 
@@ -18,12 +18,11 @@ export type SideMenuProps = {
   social: SocialUsernameProps[]
 }
 
-const SideMenu = ({ social, links }: SideMenuProps) => {
+const Menu = ({ social, links }: SideMenuProps) => {
+  const { pathname } = useLocation()
   const getStyle = (to: string, isActive: boolean) => {
     const isRoot =
-      to === 'about' &&
-      (window.location.pathname === '/' ||
-        /^\/admin\/?$/gm.test(window.location.pathname))
+      to === 'about' && (pathname === '/' || /^\/admin\/?$/gm.test(pathname))
     return isActive || isRoot ? 'text-mck_aqua' : 'text-gray-500'
   }
 
@@ -44,11 +43,7 @@ const SideMenu = ({ social, links }: SideMenuProps) => {
       "
     >
       <div className="z-30 flex justify-center px-4 py-8 bg-mck_black">
-        <Logo
-          aria-label="Logotipo"
-          name="Milton Carlos Katoo"
-          description="Software Developer"
-        />
+        <Logo name="Milton Carlos Katoo" description="Software Developer" />
       </div>
 
       <div className="text-lg">
@@ -86,4 +81,4 @@ const SideMenu = ({ social, links }: SideMenuProps) => {
   )
 }
 
-export default SideMenu
+export default Menu

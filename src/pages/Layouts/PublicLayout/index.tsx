@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Outlet } from 'react-router-dom'
 import Session from '../../../components/Session'
-import SideMenu, { SideMenuProps } from '../../../components/SideMenu'
+import Menu, { SideMenuProps } from '../../../components/Menu'
 import { AuthContext } from '../../../contexts/Auth/AuthContext'
 
 export const PublicLayout = () => {
@@ -48,7 +48,7 @@ export const PublicLayout = () => {
   return (
     <div className="h-screen flex flex-cols">
       {!!auth.user && <Session />}
-      <SideMenu {...menu} />
+      <Menu {...menu} />
       <div className="h-screen overflow-y-auto">
         <Outlet />
       </div>
