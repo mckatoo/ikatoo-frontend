@@ -3,7 +3,6 @@ import { MemoryRouter } from 'react-router-dom'
 import { describe, it } from 'vitest'
 
 import Menu from '.'
-import defaultMenuSnapshot from './defaultMenuSnapshot'
 import { mockedMenu } from './mock'
 
 describe('Menu Component', () => {
@@ -19,6 +18,6 @@ describe('Menu Component', () => {
     expect(getByText(/sobre/i)).toHaveClass('text-mck_aqua')
     expect(getByText(/habilidades/i)).toHaveClass('text-gray-500')
     expect(getByText(/habilidades/i)).not.toHaveClass('text-mck_aqua')
-    expect(container).toMatchInlineSnapshot(defaultMenuSnapshot)
+    expect(container).toMatchSnapshot()
   })
 })
