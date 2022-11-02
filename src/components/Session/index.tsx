@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 
 import { AuthContext } from '../../contexts/Auth/AuthContext'
-import { Image, ImageWrapper, Item, Itens, Menu, Wrapper } from './styles'
+import Styles from './styles'
 
 const Session = () => {
   const { user, signOut } = useContext(AuthContext)
@@ -9,11 +9,15 @@ const Session = () => {
   const [hidden, setHidden] = useState(true)
 
   return (
-    <Wrapper>
-      <Menu onClick={() => setHidden(!hidden)}>
-        <ImageWrapper>
-          <Image layout="object-fit" src={avatar?.url} alt={avatar?.alt} />
-        </ImageWrapper>
+    <Styles.Wrapper>
+      <Styles.Menu onClick={() => setHidden(!hidden)}>
+        <Styles.ImageWrapper>
+          <Styles.Image
+            layout="object-fit"
+            src={avatar?.url}
+            alt={avatar?.alt}
+          />
+        </Styles.ImageWrapper>
         {user?.name}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -29,11 +33,11 @@ const Session = () => {
             d="M19.5 8.25l-7.5 7.5-7.5-7.5"
           />
         </svg>
-      </Menu>
-      <Itens $hidden={hidden}>
-        <Item onClick={signOut}>Sair</Item>
-      </Itens>
-    </Wrapper>
+      </Styles.Menu>
+      <Styles.Itens $hidden={hidden}>
+        <Styles.Item onClick={signOut}>Sair</Styles.Item>
+      </Styles.Itens>
+    </Styles.Wrapper>
   )
 }
 
