@@ -1,4 +1,6 @@
-export default `
+// Vitest Snapshot v1
+
+exports[`Menu Component > should render menu on desktop 1`] = `
 <div>
   <menu
     aria-label="Side Menu"
