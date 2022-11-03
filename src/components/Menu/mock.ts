@@ -32,7 +32,7 @@ export const mockedMenu: SideMenuProps = {
     },
     {
       name: 'linkedin',
-      url: 'https://linkedin.com/mckatoo',
+      url: 'https://linkedin.com/in/mckatoo',
       url_icon: '/images/linkedin.svg'
     }
   ]

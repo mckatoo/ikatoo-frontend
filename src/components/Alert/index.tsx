@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export type AlertProps = {
   title: string
@@ -11,22 +11,32 @@ const Alert = ({ title, type }: AlertProps) => {
     message: 'bg-mck_aqua text-slate-900',
     error: 'bg-mck_red text-slate-200'
   }
-  const [closedStyle, setClosedStyle] = useState('')
+  const [isClosed, setIsClosed] = useState(false)
+
+  useEffect(() => {
+    setIsClosed(!title)
+  }, [title])
 
   return (
     <div
-      className={`${closedStyle} fixed w-screen z-50 ${colors[type]} text-sm shadow-lg dark:bg-gray-900`}
+      className={`${
+        isClosed ? 'hidden' : ''
+      } fixed w-screen z-50 font-semibold ${colors[type]} text-sm shadow-lg`}
       role="alert"
     >
       <div className="flex p-1">
         <span className="w-full text-center">{title}</span>
         <div className="ml-auto">
           <button
-            onClick={() => setClosedStyle('hidden')}
+            onClick={() => setIsClosed(!isClosed)}
             type="button"
             className="inline-flex flex-shrink-0 justify-center items-center h-4 w-4 rounded-md text-white/[.5] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-600 transition-all text-sm dark:focus:ring-offset-gray-900 dark:focus:ring-gray-800"
           >
-            <button className={`hidden`}>Close</button>
+            <button
+              className={`${isClosed ? 'hidden' : ''} ${colors[type]} mr-6`}
+            >
+              X
+            </button>
             <svg
               className="w-3.5 h-3.5"
               width="16"
