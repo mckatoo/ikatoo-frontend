@@ -33,7 +33,7 @@ const Alert = ({ title, type }: AlertProps) => {
             className="inline-flex flex-shrink-0 justify-center items-center h-4 w-4 rounded-md text-white/[.5] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-600 transition-all text-sm dark:focus:ring-offset-gray-900 dark:focus:ring-gray-800"
           >
             <button
-              className={`${isClosed ? 'hidden' : ''} ${colors[type]} mr-6`}
+              className={`${isClosed ? 'hidden' : ''} ${colors[type]} mr-8`}
             >
               X
             </button>
