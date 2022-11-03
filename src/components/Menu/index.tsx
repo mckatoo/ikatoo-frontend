@@ -42,7 +42,7 @@ const Menu = ({ social, links }: SideMenuProps) => {
           justify-between
       "
     >
-      <div className="z-30 flex justify-center px-4 py-8 bg-mck_black">
+      <div className="hidden z-30 lg:flex justify-center px-4 py-8 bg-mck_black">
         <Logo name="Milton Carlos Katoo" description="Software Developer" />
       </div>
 
