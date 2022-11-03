@@ -1,5 +1,6 @@
 import '../src/index.css'
 import { themes } from "@storybook/theming";
+import { INITIAL_VIEWPORTS, MINIMAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -11,5 +12,11 @@ export const parameters = {
   },
   docs: {
     theme: themes.dark
+  },
+  viewport: {
+    viewports: {
+      ...INITIAL_VIEWPORTS,
+      ...MINIMAL_VIEWPORTS
+    }
   }
 }
