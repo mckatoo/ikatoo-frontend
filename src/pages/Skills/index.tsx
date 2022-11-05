@@ -1,6 +1,6 @@
-import Card, { CardProps } from '../components/Card'
-import ProgressBar from '../components/ProgressBar'
-import { TextContainer } from '../components/TextContainer'
+import Card, { CardProps } from '../../components/Card'
+import ProgressBar from '../../components/ProgressBar'
+import { TextContainer } from '../../components/TextContainer'
 
 type SkillsProps = {
   title: string

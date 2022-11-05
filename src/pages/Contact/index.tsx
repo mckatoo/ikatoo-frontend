@@ -1,5 +1,5 @@
-import Map, { LocalizationType } from '../components/Map'
-import { TextContainer } from '../components/TextContainer'
+import Map, { LocalizationType } from '../../components/Map'
+import { TextContainer } from '../../components/TextContainer'
 
 type ContactProps = {
   title: string
