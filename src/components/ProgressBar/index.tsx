@@ -1,15 +1,17 @@
+import Styles from './styles'
+
 export type ProgressBarProps = {
   label: string
   percent: number
 }
 
 const ProgressBar = ({ label, percent }: ProgressBarProps) => (
-  <div className="flex flex-col gap-1">
+  <Styles.Wrapper>
     <span>{label}</span>
-    <div className="h-px bg-slate-600">
-      <div className="h-full bg-mck_aqua" style={{ width: `${percent}%` }} />
-    </div>
-  </div>
+    <Styles.WrapperBar>
+      <Styles.Bar style={{ width: `${percent}%` }} />
+    </Styles.WrapperBar>
+  </Styles.Wrapper>
 )
 
 export default ProgressBar
