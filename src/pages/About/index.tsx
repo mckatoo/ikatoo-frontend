@@ -1,5 +1,5 @@
-import IconCloud from '../components/IconCloud'
-import { TextContainer } from '../components/TextContainer'
+import IconCloud from '../../components/IconCloud'
+import { TextContainer } from '../../components/TextContainer'
 
 type AboutProps = {
   skills: string[]
