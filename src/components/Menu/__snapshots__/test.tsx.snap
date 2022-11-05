@@ -18,7 +18,7 @@ exports[`Menu Component > should render menu on desktop 1`] = `
       "
   >
     <div
-      class="z-30 flex justify-center px-4 py-8 bg-mck_black"
+      class="hidden z-30 lg:flex justify-center px-4 py-8 bg-mck_black"
     >
       <a
         aria-label="Logotipo"
@@ -133,7 +133,7 @@ exports[`Menu Component > should render menu on desktop 1`] = `
       >
         <a
           class="text-inherit"
-          href="https://linkedin.com/mckatoo"
+          href="https://linkedin.com/in/mckatoo"
           rel="noreferrer"
           target="_blank"
         />
