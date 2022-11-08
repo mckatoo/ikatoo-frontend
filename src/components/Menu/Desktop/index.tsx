@@ -13,7 +13,7 @@ const DesktopMenu = ({ social, links }: SideMenuProps) => {
   }
 
   return (
-    <Styles.Menu>
+    <Styles.Menu aria-label="Side Menu">
       <Styles.LogoWrapper>
         <Logo name="Milton Carlos Katoo" description="Software Developer" />
       </Styles.LogoWrapper>
