@@ -14,7 +14,7 @@ const Logo = ({ mobileSize = false, name, description }: LogoProps) => {
       <Link to={'/'}>
         {mobileSize ? (
           <svg
-            width="32"
+            className="w-full"
             viewBox="0 0 152 152"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
