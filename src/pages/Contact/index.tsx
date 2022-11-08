@@ -20,7 +20,7 @@ export const Contact = () => {
 
   return (
     <div className="flex flex-row min-h-fit h-full w-full">
-      <div className="flex flex-row items-start ml-4 mt-4">
+      <div className="flex flex-row items-start overflow-y-auto ml-4 md:mt-0 md:pt-4 mt-16 pt-4">
         <div className="flex h-full w-1/2">
           {
             <TextContainer title={title}>
