@@ -19,7 +19,7 @@ const MobileMenu = ({ social, links }: SideMenuProps) => {
   }
 
   return (
-    <Styles.Menu $isClosed={isClosed}>
+    <Styles.Menu $isClosed={isClosed} aria-label="Mobile Menu">
       <Styles.MobileBar>
         <Styles.IconWrapper onClick={() => setIsClosed(true)}>
           <Logo mobileSize />

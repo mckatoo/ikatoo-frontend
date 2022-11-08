@@ -13,7 +13,7 @@ describe('Menu Component', () => {
       </MemoryRouter>
     )
 
-    expect(getByLabelText(/side menu/i)).toBeInTheDocument()
+    expect(getByLabelText(/mobile menu/i)).toBeInTheDocument()
     expect(getByLabelText(/logotipo/i)).toBeInTheDocument()
     expect(getByText(/sobre/i)).toHaveClass('text-mck_aqua')
     expect(getByText(/habilidades/i)).toHaveClass('text-gray-500')
