@@ -50,7 +50,7 @@ export const PrivateLayout = () => {
     <div className="h-screen flex flex-cols">
       {!!auth.user && <Session />}
       <Menu {...menu} />
-      <div className="h-screen overflow-y-auto">
+      <div className="h-screen">
         <Outlet />
       </div>
     </div>
