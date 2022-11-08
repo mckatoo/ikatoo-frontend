@@ -20,8 +20,8 @@ export const Contact = () => {
 
   return (
     <div className="flex flex-row min-h-fit h-full w-full">
-      <div className="flex flex-row items-start overflow-y-auto ml-4 md:mt-0 md:pt-4 mt-16 pt-4">
-        <div className="flex h-full w-1/2">
+      <div className="flex flex-col md:flex-row md:items-start overflow-y-auto ml-4 pr-4 md:mt-0 md:pt-4 mt-16 pt-4">
+        <div className="flex h-full md:w-1/2">
           {
             <TextContainer title={title}>
               <div dangerouslySetInnerHTML={{ __html: description }} />
@@ -30,7 +30,7 @@ export const Contact = () => {
         </div>
 
         {!!localization && (
-          <div className="flex h-full w-1/2 mt-20 m-4">
+          <div className="flex h-full md:w-1/2 mt-20 m-4 min-h-[calc(100%/2)]">
             {
               <Map
                 center={localization}

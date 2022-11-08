@@ -30,7 +30,7 @@ export const Projects = () => {
 
   return (
     <div className="flex flex-row bg-mck_black_light min-h-screen h-full w-full">
-      <div className="flex flex-row items-start overflow-y-auto ml-4 md:mt-0 md:pt-4 mt-16 pt-4">
+      <div className="flex flex-col md:flex-row md:items-start overflow-y-auto ml-4 pr-4 md:mt-0 md:pt-4 mt-16 pt-4">
         <div className="flex flex-row w-full">
           <div className="flex flex-col gap-4 divide-y divide-slate-700">
             {projects.map(({ description, snapshot, githubLink }, index) => {

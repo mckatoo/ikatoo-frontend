@@ -38,8 +38,8 @@ export const About = () => {
 
   return (
     <div className="flex flex-row bg-mck_black_light min-h-screen h-full w-full">
-      <div className="flex flex-row items-start overflow-y-auto ml-4 md:mt-0 md:pt-4 mt-16 pt-4">
-        <div className="flex flex-row w-1/2">
+      <div className="flex flex-col md:flex-row md:items-start overflow-y-auto ml-4 pr-4 md:mt-0 md:pt-4 mt-16 pt-4">
+        <div className="flex flex-row md:w-1/2">
           {!!title && (
             <TextContainer title={title}>
               <div dangerouslySetInnerHTML={{ __html: description }} />
@@ -48,11 +48,11 @@ export const About = () => {
         </div>
 
         {!image ? (
-          <div className="flex w-1/2 h-full items-center justify-center">
+          <div className="flex md:w-1/2 h-full items-center justify-center">
             <IconCloud slugs={skills} />
           </div>
         ) : (
-          <div className="flex w-1/2 justify-center">
+          <div className="flex md:w-1/2 justify-center">
             <img src={image.src} alt={image.alt} />
           </div>
         )}
