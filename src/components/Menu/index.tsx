@@ -1,6 +1,8 @@
 import { NavLink, useLocation } from 'react-router-dom'
 import SVG from 'react-inlinesvg'
 import Logo from '../Logo'
+import MediaMatch from '../MediaMatch'
+import Styles from './styles'
 
 type SideMenuItem = {
   label: string
@@ -27,57 +29,45 @@ const Menu = ({ social, links }: SideMenuProps) => {
   }
 
   return (
-    <menu
-      aria-label="Side Menu"
-      className="
-          text-center
-          w-fit
-          max-w-[13rem]
-          z-20
-          h-full
-          bg-slate-800
-          text-gray-500
-          flex
-          flex-col
-          justify-between
-      "
-    >
-      <div className="hidden z-30 lg:flex justify-center px-4 py-8 bg-mck_black">
-        <Logo name="Milton Carlos Katoo" description="Software Developer" />
-      </div>
+    <>
+      <MediaMatch greaterThan="md">
+        <Styles.Menu>
+          <Styles.LogoWrapper>
+            <Logo name="Milton Carlos Katoo" description="Software Developer" />
+          </Styles.LogoWrapper>
 
-      <div className="text-lg">
-        <ul className="list-reset border-slate-700 border-y-2 divide-y divide-slate-700 font-semibold">
-          {!!links.length &&
-            links.map(({ label, to }, index) => (
-              <li key={index} className="py-4 px-10 w-full">
-                <NavLink
-                  to={to}
-                  className={({ isActive }) => getStyle(to, isActive)}
+          <Styles.LinksWrapper>
+            <Styles.Links>
+              {!!links.length &&
+                links.map(({ label, to }, index) => (
+                  <Styles.LinksItem key={index}>
+                    <NavLink
+                      to={to}
+                      className={({ isActive }) => getStyle(to, isActive)}
+                    >
+                      {label}
+                    </NavLink>
+                  </Styles.LinksItem>
+                ))}
+            </Styles.Links>
+          </Styles.LinksWrapper>
+
+          <Styles.SocialWrapper>
+            {!!social.length &&
+              social.map((social, index) => (
+                <Styles.SocialLink
+                  key={index}
+                  href={social.url}
+                  target="_parent"
+                  rel="noreferrer"
                 >
-                  {label}
-                </NavLink>
-              </li>
-            ))}
-        </ul>
-      </div>
-
-      <div className="flex flex-row justify-around py-2">
-        {!!social.length &&
-          social.map((social, index) => (
-            <div key={index} className="w-6">
-              <a
-                className="text-inherit"
-                href={social.url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <SVG src={social.url_icon} title={social.name} />
-              </a>
-            </div>
-          ))}
-      </div>
-    </menu>
+                  <SVG src={social.url_icon} title={social.name} />
+                </Styles.SocialLink>
+              ))}
+          </Styles.SocialWrapper>
+        </Styles.Menu>
+      </MediaMatch>
+    </>
   )
 }
 
