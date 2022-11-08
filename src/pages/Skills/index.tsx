@@ -58,8 +58,8 @@ export const Skills = () => {
 
   return (
     <div className="flex flex-row min-h-fit h-full w-full">
-      <div className="flex flex-row items-start overflow-y-auto ml-4 md:mt-0 md:pt-4 mt-16 pt-4">
-        <div className="flex flex-row w-1/2">
+      <div className="flex flex-col md:flex-row md:items-start overflow-y-auto ml-4 pr-4 md:mt-0 md:pt-4 mt-16 pt-4">
+        <div className="flex flex-row md:w-1/2">
           {!!title && (
             <TextContainer title={title}>
               <div dangerouslySetInnerHTML={{ __html: description }} />
@@ -68,7 +68,7 @@ export const Skills = () => {
         </div>
 
         {!!(!!skills.length || !!lastJobs.length) && (
-          <div className="flex flex-col gap-16 w-1/2 h-full mt-20 m-4">
+          <div className="flex flex-col gap-16 md:w-1/2 h-full mt-20 m-4">
             {!!skills.length && (
               <div className="w-full flex flex-col gap-4">
                 {skills.map(({ skillTitle, rankPercent }, index) => (
