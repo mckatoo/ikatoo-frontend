@@ -2,12 +2,20 @@ import tw from 'tailwind-styled-components'
 
 export default {
   Wrapper: tw.div`
-    w-60
-    bg-slate-700
-    rounded-md
-    flex
-    flex-col
-    gap-2 p-2
+    bg-white
+    shadow-md
+    border
+    border-gray-200
+    rounded-lg
+    max-w-sm
+    dark:bg-gray-800
+    dark:border-gray-700
+  `,
+  Image: tw.img`
+    rounded-t-lg
+  `,
+  ContentWrapper: tw.div`
+    p-5
   `,
   Title: tw.h1`
     text-slate-100
