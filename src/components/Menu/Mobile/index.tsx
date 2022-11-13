@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import SVG from 'react-inlinesvg'
-import { NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { SideMenuProps } from '..'
+import { AuthContext } from '../../../contexts/Auth/AuthContext'
 import CloseButton from '../../CloseButton'
 import Logo from '../../Logo'
 import MenuButton from '../../MenuButton'
@@ -9,6 +10,7 @@ import Styles from './styles'
 
 const MobileMenu = ({ social, links }: SideMenuProps) => {
   const { pathname } = useLocation()
+  const auth = useContext(AuthContext)
 
   const [isClosed, setIsClosed] = useState(true)
 
@@ -16,6 +18,11 @@ const MobileMenu = ({ social, links }: SideMenuProps) => {
     const isRoot =
       to === 'about' && (pathname === '/' || /^\/admin\/?$/gm.test(pathname))
     return isActive || isRoot ? 'text-mck_aqua' : 'text-gray-500'
+  }
+
+  const handleSignOut = () => {
+    auth.signOut()
+    setIsClosed(true)
   }
 
   return (
@@ -34,9 +41,8 @@ const MobileMenu = ({ social, links }: SideMenuProps) => {
           <Styles.Links>
             {!!links.length &&
               links.map(({ label, to }, index) => (
-                <Styles.LinksItem key={index}>
+                <Styles.LinksItem key={index} onClick={() => setIsClosed(true)}>
                   <NavLink
-                    onClick={() => setIsClosed(true)}
                     to={to}
                     className={({ isActive }) => getStyle(to, isActive)}
                   >
@@ -44,6 +50,21 @@ const MobileMenu = ({ social, links }: SideMenuProps) => {
                   </NavLink>
                 </Styles.LinksItem>
               ))}
+
+            {auth.user ? (
+              <Styles.Session>
+                <Styles.DashboardLink onClick={() => setIsClosed(true)}>
+                  <Link to={'/admin'}>Dashboard</Link>
+                </Styles.DashboardLink>
+                <Styles.SignOutLink onClick={handleSignOut}>
+                  <span>Sair</span>
+                </Styles.SignOutLink>
+              </Styles.Session>
+            ) : (
+              <Styles.SignInLink onClick={() => setIsClosed(true)}>
+                <Link to={'/login'}>Entrar</Link>
+              </Styles.SignInLink>
+            )}
           </Styles.Links>
         </Styles.LinksWrapper>
 

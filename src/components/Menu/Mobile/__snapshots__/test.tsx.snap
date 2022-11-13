@@ -1,6 +1,28 @@
 // Vitest Snapshot v1
 
 exports[`Menu Component > should render menu on desktop 1`] = `
+.c0 svg {
+  margin: auto;
+}
+
+.c1 a,
+.c1 span {
+  display: block;
+  padding: 1rem 2.5rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c2 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(8 253 216 / var(--tw-bg-opacity));
+}
+
+.c2 a {
+  --tw-text-opacity: 1;
+  color: rgb(0 3 44 / var(--tw-text-opacity));
+}
+
 <div>
   <menu
     aria-label="Mobile Menu"
@@ -14,7 +36,7 @@ exports[`Menu Component > should render menu on desktop 1`] = `
       >
         <div
           aria-label="Logotipo"
-          class="text-gray-500 w-fit h-fit flex flex-col place-items-center"
+          class="c0 text-gray-500 w-fit h-fit flex flex-col items-center text-center"
         >
           <a
             href="/"
@@ -127,7 +149,7 @@ exports[`Menu Component > should render menu on desktop 1`] = `
           class="list-reset border-slate-700 border-y-2 divide-y divide-slate-700 font-semibold"
         >
           <li
-            class="py-4 px-10 w-full"
+            class="c1"
           >
             <a
               class="text-mck_aqua"
@@ -137,7 +159,7 @@ exports[`Menu Component > should render menu on desktop 1`] = `
             </a>
           </li>
           <li
-            class="py-4 px-10 w-full"
+            class="c1"
           >
             <a
               class="text-gray-500"
@@ -147,7 +169,7 @@ exports[`Menu Component > should render menu on desktop 1`] = `
             </a>
           </li>
           <li
-            class="py-4 px-10 w-full"
+            class="c1"
           >
             <a
               class="text-gray-500"
@@ -157,13 +179,22 @@ exports[`Menu Component > should render menu on desktop 1`] = `
             </a>
           </li>
           <li
-            class="py-4 px-10 w-full"
+            class="c1"
           >
             <a
               class="text-gray-500"
               href="/contact"
             >
               Contato
+            </a>
+          </li>
+          <li
+            class="c1 c2"
+          >
+            <a
+              href="/login"
+            >
+              Entrar
             </a>
           </li>
         </ul>

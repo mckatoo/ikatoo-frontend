@@ -1,8 +1,18 @@
 // Vitest Snapshot v1
 
 exports[`Menu Component > should render menu on desktop 1`] = `
+.c1 svg {
+  margin: auto;
+}
+
 .c0 {
   text-align: -webkit-center;
+}
+
+.c2 a {
+  display: block;
+  padding: 1rem 2.5rem;
+  width: 100%;
 }
 
 <div>
@@ -15,7 +25,7 @@ exports[`Menu Component > should render menu on desktop 1`] = `
     >
       <div
         aria-label="Logotipo"
-        class="text-gray-500 w-fit h-fit flex flex-col place-items-center"
+        class="c1 text-gray-500 w-fit h-fit flex flex-col items-center text-center"
       >
         <a
           href="/"
@@ -60,7 +70,7 @@ exports[`Menu Component > should render menu on desktop 1`] = `
         class="list-reset border-slate-700 border-y-2 divide-y divide-slate-700 font-semibold"
       >
         <li
-          class="py-4 px-10 w-full"
+          class="c2"
         >
           <a
             class="text-mck_aqua"
@@ -70,7 +80,7 @@ exports[`Menu Component > should render menu on desktop 1`] = `
           </a>
         </li>
         <li
-          class="py-4 px-10 w-full"
+          class="c2"
         >
           <a
             class="text-gray-500"
@@ -80,7 +90,7 @@ exports[`Menu Component > should render menu on desktop 1`] = `
           </a>
         </li>
         <li
-          class="py-4 px-10 w-full"
+          class="c2"
         >
           <a
             class="text-gray-500"
@@ -90,7 +100,7 @@ exports[`Menu Component > should render menu on desktop 1`] = `
           </a>
         </li>
         <li
-          class="py-4 px-10 w-full"
+          class="c2"
         >
           <a
             class="text-gray-500"
