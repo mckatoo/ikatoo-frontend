@@ -1,13 +1,21 @@
+import styled from 'styled-components'
 import tw from 'tailwind-styled-components'
 
+const CenterSvg = styled.div`
+  svg {
+    margin: auto;
+  }
+`
+
 export default {
-  Wrapper: tw.div`
+  Wrapper: tw(CenterSvg)`
     text-gray-500
     w-fit
     h-fit
     flex
     flex-col
-    place-items-center
+    items-center
+    text-center
   `,
   Description: tw.span`
     text-sm
