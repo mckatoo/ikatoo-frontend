@@ -1,6 +1,7 @@
 import Card, { CardProps } from '../../components/Card'
 import ProgressBar from '../../components/ProgressBar'
 import { TextContainer } from '../../components/TextContainer'
+import Styles from './styles'
 
 type SkillsProps = {
   title: string
@@ -57,51 +58,49 @@ export const Skills = () => {
   const { description, title, skills, lastJobs } = skillsPage
 
   return (
-    <div className="flex flex-row min-h-fit h-full w-full">
-      <div className="flex flex-col md:flex-row md:items-start overflow-y-auto ml-4 pr-4 md:mt-0 md:pt-4 mt-16 pt-4">
-        <div className="flex flex-row md:w-1/2">
-          {!!title && (
-            <TextContainer title={title}>
-              <div dangerouslySetInnerHTML={{ __html: description }} />
-            </TextContainer>
-          )}
-        </div>
-
-        {!!(!!skills.length || !!lastJobs.length) && (
-          <div className="flex flex-col gap-16 md:w-1/2 h-full mt-20 m-4">
-            {!!skills.length && (
-              <div className="w-full flex flex-col gap-4">
-                {skills.map(({ skillTitle, rankPercent }, index) => (
-                  <ProgressBar
-                    key={index}
-                    label={skillTitle}
-                    percent={rankPercent}
-                  />
-                ))}
-              </div>
-            )}
-
-            {!!lastJobs.length && (
-              <div className="w-full flex flex-wrap justify-center gap-4">
-                {lastJobs.map(
-                  (
-                    { jobTitle, jobDescription, yearMonthStart, yearMonthEnd },
-                    index
-                  ) => {
-                    const content: CardProps = {
-                      title: jobTitle,
-                      subTitle: `${yearMonthStart} | ${yearMonthEnd || 'Hoje'}`,
-                      content: jobDescription
-                    }
-
-                    return <Card key={index} {...content} />
-                  }
-                )}
-              </div>
-            )}
-          </div>
+    <Styles.Wrapper>
+      <Styles.Text>
+        {!!title && (
+          <TextContainer title={title}>
+            <div dangerouslySetInnerHTML={{ __html: description }} />
+          </TextContainer>
         )}
-      </div>
-    </div>
+      </Styles.Text>
+
+      {!!(!!skills.length || !!lastJobs.length) && (
+        <Styles.Skills>
+          {!!skills.length && (
+            <Styles.Progress>
+              {skills.map(({ skillTitle, rankPercent }, index) => (
+                <ProgressBar
+                  key={index}
+                  label={skillTitle}
+                  percent={rankPercent}
+                />
+              ))}
+            </Styles.Progress>
+          )}
+
+          {!!lastJobs.length && (
+            <Styles.Jobs>
+              {lastJobs.map(
+                (
+                  { jobTitle, jobDescription, yearMonthStart, yearMonthEnd },
+                  index
+                ) => {
+                  const content: CardProps = {
+                    title: jobTitle,
+                    subTitle: `${yearMonthStart} | ${yearMonthEnd || 'Hoje'}`,
+                    content: jobDescription
+                  }
+
+                  return <Card key={index} {...content} />
+                }
+              )}
+            </Styles.Jobs>
+          )}
+        </Styles.Skills>
+      )}
+    </Styles.Wrapper>
   )
 }

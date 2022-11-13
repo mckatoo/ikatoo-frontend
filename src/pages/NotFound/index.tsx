@@ -1,6 +1,8 @@
+import Styles from './styles'
+
 export const NotFound = () => (
-  <div className="w-screen h-screen flex flex-col justify-center items-center g-6 text-gray-300">
-    <h1 className="text-9xl">404</h1>
-    <h3 className="text-xl">Page not found</h3>
-  </div>
+  <Styles.Wrapper>
+    <Styles.Code>404</Styles.Code>
+    <Styles.Message>Page not found</Styles.Message>
+  </Styles.Wrapper>
 )

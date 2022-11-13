@@ -1,49 +1,32 @@
-import Map, { LocalizationType } from '../../components/Map'
+import Map from '../../components/Map'
 import { TextContainer } from '../../components/TextContainer'
-
-type ContactProps = {
-  title: string
-  description: string
-  localization?: LocalizationType
-}
+import mock from './mock'
+import Styles from './styles'
 
 export const Contact = () => {
-  const contact: ContactProps = {
-    title: 'Entre em contato 😄',
-    description: `Estou interessado em oportunidades CLT, mas não descarto nenhum tipo de trabalho desde que me traga oportunidades de aprendizado. No entanto, se você tiver outra solicitação ou pergunta, não hesite em enviar um email. <a href="mailto:mckatoo@gmail.com?Subject=Contato%20pelo%20site">mckatoo@gmail.com</a>`,
-    localization: {
-      lat: -22.428850083857423,
-      lng: -46.830700405308185
-    }
-  }
+  const contact = mock
   const { description, title, localization } = contact
 
   return (
-    <div className="flex flex-row min-h-fit h-full w-full">
-      <div className="flex flex-col md:flex-row md:items-start overflow-y-auto ml-4 pr-4 md:mt-0 md:pt-4 mt-16 pt-4">
-        <div className="flex h-full md:w-1/2">
-          {
-            <TextContainer title={title}>
-              <div dangerouslySetInnerHTML={{ __html: description }} />
-            </TextContainer>
-          }
-        </div>
+    <Styles.Wrapper>
+      <Styles.Description>
+        {
+          <TextContainer title={title}>
+            <div dangerouslySetInnerHTML={{ __html: description }} />
+          </TextContainer>
+        }
+      </Styles.Description>
 
-        {!!localization && (
-          <div className="flex h-full md:w-1/2 mt-20 m-4 min-h-[calc(100%/2)]">
-            {
-              <Map
-                center={localization}
-                label={{
-                  text: 'Milton Carlos Katoo',
-                  className: '-mt-10 bg-slate-700 p-1 rounded',
-                  color: 'white'
-                }}
-              />
-            }
-          </div>
-        )}
-      </div>
-    </div>
+      {!!localization && (
+        <Map
+          center={localization}
+          label={{
+            text: 'Milton Carlos Katoo',
+            className: '-mt-10 bg-slate-700 p-1 rounded',
+            color: 'white'
+          }}
+        />
+      )}
+    </Styles.Wrapper>
   )
 }
