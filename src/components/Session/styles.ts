@@ -8,6 +8,7 @@ export default {
   Wrapper: tw.div`
     fixed
     right-0
+    z-10
   `,
   Menu: tw.button`
     bg-mck_red
