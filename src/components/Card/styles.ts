@@ -1,13 +1,18 @@
 import tw from 'tailwind-styled-components'
 
+type WrapperProps = {
+  $stretch: boolean
+}
+
 export default {
   Wrapper: tw.div`
+    ${(props: WrapperProps) => props.$stretch && 'h-full w-full'}
+    grid
     bg-white
     shadow-md
     border
     border-gray-200
     rounded-lg
-    max-w-sm
     dark:bg-gray-800
     dark:border-gray-700
   `,
@@ -15,10 +20,10 @@ export default {
     rounded-t-lg
   `,
   ContentWrapper: tw.div`
+    text-slate-100
     p-5
   `,
   Title: tw.h1`
-    text-slate-100
     text-lg
   `,
   Subtitle: tw.h2`
