@@ -9,6 +9,16 @@ const WebkitTextCenter = styled.div`
   text-align: -webkit-center;
 `
 
+const LinksItem = styled.li`
+  a,
+  span {
+    display: block;
+    padding: 1rem 2.5rem;
+    width: 100%;
+    cursor: pointer;
+  }
+`
+
 export default {
   Menu: tw.menu`
     fixed
@@ -68,11 +78,7 @@ export default {
     divide-slate-700
     font-semibold
   `,
-  LinksItem: tw.li`
-    py-4
-    px-10
-    w-full
-  `,
+  LinksItem,
   SocialWrapper: tw.div`
     flex
     flex-row
@@ -85,5 +91,25 @@ export default {
   SocialLink: tw.a`
     w-6
     text-inherit
+  `,
+  Session: tw.div`
+    grid
+    grid-cols-2
+    text-mck_gray_light
+  `,
+  DashboardLink: tw(LinksItem)`
+    bg-mck_black_light
+  `,
+  SignOutLink: tw(LinksItem)`
+    bg-mck_red
+  `,
+  SignInLink: styled(LinksItem)`
+    --tw-bg-opacity: 1;
+    background-color: rgb(8 253 216 / var(--tw-bg-opacity));
+
+    a {
+      --tw-text-opacity: 1;
+      color: rgb(0 3 44 / var(--tw-text-opacity));
+    }
   `
 }

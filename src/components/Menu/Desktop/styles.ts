@@ -36,10 +36,12 @@ export default {
     divide-slate-700
     font-semibold
   `,
-  LinksItem: tw.li`
-    py-4
-    px-10
-    w-full
+  LinksItem: styled.li`
+    a {
+      display: block;
+      padding: 1rem 2.5rem;
+      width: 100%;
+    }
   `,
   SocialWrapper: tw.div`
     flex
