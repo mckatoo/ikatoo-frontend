@@ -20,7 +20,12 @@ const Map = ({ center, label }: MapProps) => {
 
   return isLoaded ? (
     <GoogleMap
-      mapContainerStyle={{ height: '100%', width: '100%' }}
+      mapContainerStyle={{
+        minHeight: '20rem',
+        minWidth: '20rem',
+        height: '100%',
+        width: '100%'
+      }}
       center={center}
       zoom={15}
     >
