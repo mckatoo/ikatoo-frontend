@@ -4,6 +4,7 @@ import Session from '../../../components/Session'
 import Menu, { SideMenuProps } from '../../../components/Menu'
 import { AuthContext } from '../../../contexts/Auth/AuthContext'
 import Styles from './styles'
+import MediaMatch from '../../../components/MediaMatch'
 
 export const PublicLayout = () => {
   const auth = useContext(AuthContext)
@@ -48,7 +49,11 @@ export const PublicLayout = () => {
 
   return (
     <div className="h-screen flex flex-cols">
-      {!!auth.user && <Session />}
+      {!!auth.user && (
+        <MediaMatch greaterThan="md">
+          <Session />
+        </MediaMatch>
+      )}
       <Menu {...menu} />
       <Styles.Container>
         <Outlet />

@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom'
 import Session from '../../../components/Session'
 import Menu, { SideMenuProps } from '../../../components/Menu'
 import { AuthContext } from '../../../contexts/Auth/AuthContext'
+import MediaMatch from '../../../components/MediaMatch'
 
 export const PrivateLayout = () => {
   const auth = useContext(AuthContext)
@@ -48,7 +49,11 @@ export const PrivateLayout = () => {
 
   return (
     <div className="h-screen flex flex-cols">
-      {!!auth.user && <Session />}
+      {!!auth.user && (
+        <MediaMatch greaterThan="md">
+          <Session />
+        </MediaMatch>
+      )}
       <Menu {...menu} />
       <div className="h-screen">
         <Outlet />
