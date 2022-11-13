@@ -5,10 +5,17 @@ export type CardProps = {
   title: string
   subTitle?: string
   content: string
+  stretch?: boolean
 }
 
-const Card = ({ image, title, subTitle, content }: CardProps) => (
-  <Styles.Wrapper>
+const Card = ({
+  stretch = false,
+  image,
+  title,
+  subTitle,
+  content
+}: CardProps) => (
+  <Styles.Wrapper $stretch={stretch}>
     {!!image && <Styles.Image src={image} alt={title} />}
     <Styles.ContentWrapper>
       <Styles.Title>{title}</Styles.Title>
