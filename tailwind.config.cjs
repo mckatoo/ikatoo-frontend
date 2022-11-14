@@ -17,7 +17,9 @@ module.exports = {
         mck_aqua: '#08FDD8',
         mck_red: '#ff2a2a',
         mck_gray_light: 'rgb(229 231 235)',
-        mck_gray_dark: 'rgb(31 41 55)'
+        mck_gray_dark: 'rgb(31 41 55)',
+        mck_primary: 'rgb(30 41 59)',
+        mck_secondary: '#233d5a'
       }
     }
   },
