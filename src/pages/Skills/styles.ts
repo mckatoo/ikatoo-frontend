@@ -36,5 +36,14 @@ export default {
     flex-wrap
     justify-center
     gap-4
+  `,
+  Subtitle: tw.h2`
+    text-mck_aqua
+    text-2xl
+  `,
+  JobsWrapper: tw.div`
+    flex
+    flex-col
+    gap-6
   `
 }
