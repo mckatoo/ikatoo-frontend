@@ -20,7 +20,8 @@ export default {
     rounded-t-lg
   `,
   ContentWrapper: tw.div`
-    text-slate-100
+    text-slate-800
+    dark:text-slate-100
     p-5
   `,
   Title: tw.h1`
