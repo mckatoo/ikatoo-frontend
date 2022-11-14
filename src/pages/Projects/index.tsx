@@ -1,5 +1,5 @@
 import Card, { CardProps } from '../../components/Card'
-import { mockProjects } from '../../components/Card/mock'
+import { mockProjects } from './mock'
 import Styles from './styles'
 
 export type ProjectProps = {
