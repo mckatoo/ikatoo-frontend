@@ -38,6 +38,7 @@ export const Skills = () => {
         <Styles.Skills>
           {!!skills.length && (
             <Styles.Progress>
+              <Styles.Subtitle>Estudo</Styles.Subtitle>
               {skills.map(({ skillTitle, rankPercent }, index) => (
                 <ProgressBar
                   key={index}
@@ -49,22 +50,25 @@ export const Skills = () => {
           )}
 
           {!!lastJobs.length && (
-            <Styles.Jobs>
-              {lastJobs.map(
-                (
-                  { jobTitle, jobDescription, yearMonthStart, yearMonthEnd },
-                  index
-                ) => {
-                  const content: CardProps = {
-                    title: jobTitle,
-                    subTitle: `${yearMonthStart} | ${yearMonthEnd || 'Hoje'}`,
-                    content: jobDescription
-                  }
+            <Styles.JobsWrapper>
+              <Styles.Subtitle>Últimos Trabalhos</Styles.Subtitle>
+              <Styles.Jobs>
+                {lastJobs.map(
+                  (
+                    { jobTitle, jobDescription, yearMonthStart, yearMonthEnd },
+                    index
+                  ) => {
+                    const content: CardProps = {
+                      title: jobTitle,
+                      subTitle: `${yearMonthStart} | ${yearMonthEnd || 'Hoje'}`,
+                      content: jobDescription
+                    }
 
-                  return <Card key={index} {...content} />
-                }
-              )}
-            </Styles.Jobs>
+                    return <Card stretch key={index} {...content} />
+                  }
+                )}
+              </Styles.Jobs>
+            </Styles.JobsWrapper>
           )}
         </Styles.Skills>
       )}
