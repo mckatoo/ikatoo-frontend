@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import Card from '.'
-import { mockProjects } from './mock'
+import { mockProjects } from '../../pages/Projects/mock'
 
 export default {
   title: 'Components/Card',

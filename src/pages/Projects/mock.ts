@@ -1,4 +1,4 @@
-import { ProjectProps } from '../../pages/Projects'
+import { ProjectProps } from '.'
 
 export const mockProjects: ProjectProps[] = [
   {
