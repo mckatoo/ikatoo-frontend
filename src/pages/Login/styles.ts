@@ -29,7 +29,9 @@ const Button = tw.button`
 
 export default {
   Wrapper: tw.section`
-    h-screen
+    min-h-screen
+    min-w-full
+    h-full
     w-screen
   `,
   Container: tw.div`
@@ -43,6 +45,7 @@ export default {
     container
     w-80
     mx-auto
+    py-8
   `,
   Form: tw.form`
     flex
