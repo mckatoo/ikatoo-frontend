@@ -1,22 +1,37 @@
+import { UserCircle } from '@styled-icons/boxicons-regular'
+import { Email, Lock } from '@styled-icons/material-outlined'
 import { useContext, useState } from 'react'
-import { FieldValues, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
 import Alert from '../../components/Alert'
+import Checkbox from '../../components/Checkbox'
 import Logo from '../../components/Logo'
+import TextInput from '../../components/TextInput'
 import { AuthContext } from '../../contexts/Auth/AuthContext'
 import githubAuth from '../../services/github/githubAuth'
 import Styles from './styles'
 
+type FormFields = {
+  username: { value: string }
+  email: { value: string }
+  password: { value: string }
+}
+
 export const Login = () => {
   const auth = useContext(AuthContext)
   const navigate = useNavigate()
-  const { register, handleSubmit } = useForm()
 
   const [error, setError] = useState<string | null>(null)
 
-  const handleSignIn = async (user: FieldValues) => {
-    const { username, email, password } = user
+  const handleSignIn = async (event: React.FormEvent) => {
+    event.preventDefault()
+
+    const {
+      username: { value: username },
+      email: { value: email },
+      password: { value: password }
+    } = event.currentTarget as unknown as FormFields
+
     if ((username || email) && password) {
       const isLogged = await auth.signIn({ username, email, password })
       if (isLogged) {
@@ -32,11 +47,11 @@ export const Login = () => {
       {!!error && <Alert title={error} type="error" />}
       <Styles.Container>
         <Logo name="Milton Carlos Katoo" description="Software Developer" />
-        <Styles.Form onSubmit={handleSubmit(handleSignIn)}>
+        <Styles.Form onSubmit={handleSignIn}>
           <Styles.UsernameOrEmail>
-            <Styles.Input
-              {...register('username')}
-              type="text"
+            <TextInput
+              icon={<UserCircle />}
+              name="username"
               placeholder="Username"
             />
 
@@ -44,29 +59,23 @@ export const Login = () => {
               <Styles.Divisor $textSize="sm">OR</Styles.Divisor>
             </Styles.DivisorWrapper>
 
-            <Styles.Input
-              {...register('email')}
-              type="text"
+            <TextInput
+              name="email"
               placeholder="Email address"
+              icon={<Email />}
             />
           </Styles.UsernameOrEmail>
 
-          <Styles.Input
-            {...register('password')}
+          <TextInput
+            name="password"
             type="password"
             placeholder="Password"
+            icon={<Lock />}
           />
 
           <Styles.PasswordHelpers>
             <Styles.CheckboxWrapper>
-              <Styles.Checkbox
-                type="checkbox"
-                name="remember"
-                id="remember"
-                defaultChecked
-              />
-
-              <Styles.Label htmlFor="remember">Remember me</Styles.Label>
+              <Checkbox label="Remember me" labelFor="remember" />
             </Styles.CheckboxWrapper>
             <Styles.ForgotPassword>Forgot password?</Styles.ForgotPassword>
           </Styles.PasswordHelpers>
