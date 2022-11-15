@@ -1,0 +1,84 @@
+// Vitest Snapshot v1
+
+exports[`<Checkbox /> > should render with label 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 0.2rem solid;
+  border-radius: 0.2rem;
+  -webkit-transition: background border;
+  transition: background border;
+  position: relative;
+  outline: none;
+}
+
+.c1:before {
+  content: '';
+  width: 0.6rem;
+  height: 0.9rem;
+  border: 0.2rem solid;
+  border-top: 0;
+  border-left: 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0.1rem;
+  opacity: 0;
+}
+
+.c1:focus {
+  box-shadow: 0 0 0.5rem;
+}
+
+.c2 {
+  cursor: pointer;
+  color: white;
+  line-height: 1.8rem;
+}
+
+<div
+  class="c0"
+>
+  <input
+    class="border-mck_gray_dark delay-100 ease-in-out before:border-white before:delay-100 before:ease-in-out focus:shadow-mck_primary hover:delay-100 hover:ease-in-out hover:border-gray-500 checked:border-mck_primary checked:bg-mck_primary checked:before:opacity-100 c1"
+    id="check"
+    type="checkbox"
+    value=""
+  />
+  <label
+    class="pl-3 c2"
+    for="check"
+    labelcolor="white"
+  >
+    checkbox label
+  </label>
+</div>
+`
