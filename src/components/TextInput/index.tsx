@@ -1,4 +1,5 @@
-import { useState, InputHTMLAttributes } from 'react'
+import { InputHTMLAttributes, useState } from 'react'
+
 import Styles from './styles'
 
 export type TextInputProps = {
@@ -9,6 +10,7 @@ export type TextInputProps = {
   iconPosition?: 'left' | 'right'
   disabled?: boolean
   error?: string
+  name: string
 } & InputHTMLAttributes<HTMLInputElement>
 
 const TextInput = ({
@@ -32,17 +34,17 @@ const TextInput = ({
   }
 
   return (
-    <Styles.Wrapper $disabled={disabled} $error={!!error}>
+    <Styles.Wrapper disabled={disabled} error={!!error}>
       {!!label && <Styles.Label htmlFor={name}>{label}</Styles.Label>}
       <Styles.InputWrapper>
         {!!icon && (
-          <Styles.Icon $iconPosition={iconPosition}>{icon}</Styles.Icon>
+          <Styles.Icon iconPosition={iconPosition}>{icon}</Styles.Icon>
         )}
         <Styles.Input
           type="text"
           onChange={onChange}
           value={value}
-          $iconPosition={iconPosition}
+          iconPosition={iconPosition}
           disabled={disabled}
           name={name}
           {...(label ? { id: name } : {})}

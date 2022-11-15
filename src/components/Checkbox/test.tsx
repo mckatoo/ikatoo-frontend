@@ -1,7 +1,9 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
+
 import Checkbox from '.'
+import theme from '../../theme'
 
 describe('<Checkbox />', () => {
   it('should render with label', () => {
@@ -27,7 +29,7 @@ describe('<Checkbox />', () => {
     )
 
     expect(screen.getByText(/checkbox label/i)).toHaveStyle({
-      color: 'black'
+      color: theme.colors.black
     })
   })
 

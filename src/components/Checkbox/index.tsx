@@ -1,4 +1,5 @@
 import { InputHTMLAttributes, useState } from 'react'
+
 import Styles from './styles'
 
 export type CheckboxProps = {
@@ -19,10 +20,11 @@ const Checkbox = ({
   value,
   ...props
 }: CheckboxProps) => {
+  // controlled component (state)
   const [checked, setChecked] = useState(isChecked)
 
   const onChange = () => {
-    const status = !checked
+    const status = !checked // true => false => true
     setChecked(status)
 
     !!onCheck && onCheck(status)
