@@ -5,9 +5,7 @@ type Props = {
   $color?: string
 }
 
-const isClosed = (props: Props) => {
-  if (props.$isClosed) return `hidden`
-}
+const isClosed = (props: Props) => props.$isClosed && `hidden`
 
 export default {
   Main: tw.div`
