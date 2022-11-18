@@ -1,13 +1,11 @@
 import { UserCircle } from '@styled-icons/boxicons-regular'
 import { Email, Lock } from '@styled-icons/material-outlined'
-import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import Alert from '../../components/Alert'
 import Checkbox from '../../components/Checkbox'
 import Logo from '../../components/Logo'
 import TextInput from '../../components/TextInput'
-import { AuthContext } from '../../contexts/Auth/AuthContext'
+import useAuth from '../../hooks/useAuth'
 import githubAuth from '../../services/github/githubAuth'
 import Styles from './styles'
 
@@ -18,10 +16,8 @@ type FormFields = {
 }
 
 export const Login = () => {
-  const auth = useContext(AuthContext)
+  const auth = useAuth()
   const navigate = useNavigate()
-
-  const [error, setError] = useState<string | null>(null)
 
   const handleSignIn = async (event: React.FormEvent) => {
     event.preventDefault()
@@ -36,15 +32,12 @@ export const Login = () => {
       const isLogged = await auth.signIn({ username, email, password })
       if (isLogged) {
         navigate('/admin')
-      } else {
-        setError('error: Credentials invalid')
       }
     }
   }
 
   return (
     <Styles.Wrapper>
-      {!!error && <Alert title={error} type="error" />}
       <Styles.Container>
         <Logo name="Milton Carlos Katoo" description="Software Developer" />
         <Styles.Form onSubmit={handleSignIn}>

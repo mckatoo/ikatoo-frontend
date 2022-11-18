@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import api from '../../services/api'
+import auth from '../../services/auth'
 import { SignInProps } from '../../types/Auth'
 import { User } from '../../types/User'
 import { AuthContext } from './AuthContext'
@@ -21,12 +21,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   useEffect(() => {
     const handlerGithubAuth = async (code: string) => {
       try {
-        const data = await api.githubAuth(code)
+        const data = await auth.githubAuth(code)
         setUser(data.user)
         setLocalStorageToken(data.accessToken)
         navigate('/admin')
       } catch (error) {
-        if (error instanceof Error) setError(error.message)
+        if (error instanceof Error) {
+          setError(error.message)
+        }
       }
     }
 
@@ -42,7 +44,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       const token = localStorage.getItem('IKATOO_AuthToken')
       if (token) {
         try {
-          const data = await api.siginWithToken(token)
+          const data = await auth.siginWithToken(token)
           if (data.user) {
             setUser(data.user)
             location.pathname === '/login'
@@ -52,7 +54,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         } catch (error) {
           if (error instanceof Error) {
             setError(error.message)
-            await api.signOut()
+            await auth.signOut()
             setUser(null)
             setLocalStorageToken('')
             navigate('/login')
@@ -64,8 +66,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, [location.pathname, navigate])
 
   const signIn = async ({ username, email, password }: SignInProps) => {
-    const data = await api.signIn({ username, email, password })
-    if (data.user && data.accessToken && data.refreshToken) {
+    const data = await auth.signIn({ username, email, password })
+    if (!(data instanceof Error)) {
       setUser(data.user)
       setLocalStorageToken(data.accessToken)
       navigate('/admin')
@@ -75,7 +77,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }
 
   const signOut = async () => {
-    await api.signOut()
+    await auth.signOut()
     setUser(null)
     setLocalStorageToken('')
     navigate('/login')
