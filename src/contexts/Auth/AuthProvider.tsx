@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useAlert } from '../../hooks/useAlert'
 
 import auth from '../../services/auth'
 import { SignInProps } from '../../types/Auth'
@@ -14,6 +15,7 @@ type AuthProviderProps = {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const navigate = useNavigate()
   const location = useLocation()
+  const { setAlert } = useAlert()
 
   const [user, setUser] = useState<User | null>(null)
   const [error, setError] = useState('')
@@ -73,6 +75,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       navigate('/admin')
       return true
     }
+    setError(data.message)
+    setAlert({
+      title: data.message,
+      type: 'error'
+    })
     return false
   }
 
