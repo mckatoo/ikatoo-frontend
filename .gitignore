@@ -22,11 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-<<<<<<< HEAD
-<<<<<<< HEAD
 .vercel
-=======
->>>>>>> Convert Remix to ReactJs project
-=======
-.vercel
->>>>>>> ignore vercel configs
+
+.env
