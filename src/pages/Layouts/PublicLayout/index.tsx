@@ -1,13 +1,13 @@
-import { useContext } from 'react'
 import { Outlet } from 'react-router-dom'
-import Session from '../../../components/Session'
-import Menu, { SideMenuProps } from '../../../components/Menu'
-import { AuthContext } from '../../../contexts/Auth/AuthContext'
-import Styles from './styles'
+
 import MediaMatch from '../../../components/MediaMatch'
+import Menu, { SideMenuProps } from '../../../components/Menu'
+import Session from '../../../components/Session'
+import useAuth from '../../../hooks/useAuth'
+import Styles from './styles'
 
 export const PublicLayout = () => {
-  const auth = useContext(AuthContext)
+  const auth = useAuth()
 
   const menu: SideMenuProps = {
     links: [

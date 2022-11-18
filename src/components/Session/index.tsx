@@ -1,10 +1,10 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 
-import { AuthContext } from '../../contexts/Auth/AuthContext'
+import useAuth from '../../hooks/useAuth'
 import Styles from './styles'
 
 const Session = () => {
-  const { user, signOut } = useContext(AuthContext)
+  const { user, signOut } = useAuth()
   const avatar = user?.avatar
   const [hidden, setHidden] = useState(true)
 
