@@ -1,32 +1,5 @@
 import tw from 'tailwind-styled-components'
 
-const Button = tw.button`
-  inline-block
-  px-7
-  py-3
-  text-mck_aqua
-  bg-slate-800
-  focus:outline-none
-  hover:bg-mck_aqua
-  hover:text-slate-800
-  font-medium
-  text-sm
-  leading-snug
-  uppercase
-  rounded
-  shadow-md
-  hover:shadow-lg
-  focus:bg-blue-700
-  focus:shadow-lg
-  focus:ring-0
-  active:bg-blue-800
-  active:shadow-lg
-  transition
-  duration-150
-  ease-in-out
-  w-full
-`
-
 export default {
   Wrapper: tw.section`
     min-h-screen
@@ -116,14 +89,6 @@ export default {
     duration-200
     transition
     ease-in-out
-  `,
-  Button,
-  GithubButton: tw(Button)`
-    text-white
-    flex
-    justify-center
-    items-stretch
-    bg-blue-800
   `,
   Divisor: tw.p`
     ${(props: {
