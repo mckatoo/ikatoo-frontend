@@ -1,26 +1,24 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import Alert from '.'
+import { useAlert } from '../../hooks/useAlert'
 
 export default {
   title: 'Components/Alert',
-  component: Alert,
-  args: {
-    title: 'This is a alert',
-    type: 'alert'
-  }
+  component: Alert
 } as ComponentMeta<typeof Alert>
 
 export const WithAlert = {} as ComponentStory<typeof Alert>
-export const WithError = {
-  args: {
-    title: 'Error message',
-    type: 'error'
+WithAlert.decorators = [
+  (Story) => {
+    const { setAlert } = useAlert()
+    setAlert({
+      title: 'Alert Message',
+      type: 'alert'
+    })
+    return Story()
   }
-} as ComponentStory<typeof Alert>
-export const WithMessage = {
-  args: {
-    title: 'Notify',
-    type: 'message'
-  }
-} as ComponentStory<typeof Alert>
+]
+
+export const WithError = {} as ComponentStory<typeof Alert>
+export const WithMessage = {} as ComponentStory<typeof Alert>
