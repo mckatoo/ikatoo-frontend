@@ -5,6 +5,7 @@ import Styles from './styles'
 export type TextInputProps = {
   onInputChange?: (value: string) => void
   label?: string
+  labelColor?: 'black' | 'white'
   initialValue?: string
   icon?: React.ReactNode
   iconPosition?: 'left' | 'right'
@@ -17,6 +18,7 @@ const TextInput = ({
   icon,
   iconPosition = 'left',
   label,
+  labelColor = 'black',
   name,
   initialValue = '',
   error,
@@ -35,7 +37,11 @@ const TextInput = ({
 
   return (
     <Styles.Wrapper disabled={disabled} error={!!error}>
-      {!!label && <Styles.Label htmlFor={name}>{label}</Styles.Label>}
+      {!!label && (
+        <Styles.Label labelColor={labelColor} htmlFor={name}>
+          {label}
+        </Styles.Label>
+      )}
       <Styles.InputWrapper>
         {!!icon && (
           <Styles.Icon iconPosition={iconPosition}>{icon}</Styles.Icon>
