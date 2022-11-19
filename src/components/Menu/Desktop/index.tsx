@@ -1,15 +1,22 @@
 import SVG from 'react-inlinesvg'
-import { NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { SideMenuProps } from '..'
+import useAuth from '../../../hooks/useAuth'
 import Logo from '../../Logo'
 import Styles from './styles'
 
 const DesktopMenu = ({ social, links }: SideMenuProps) => {
   const { pathname } = useLocation()
+  const auth = useAuth()
+
   const getStyle = (to: string, isActive: boolean) => {
     const isRoot =
       to === 'about' && (pathname === '/' || /^\/admin\/?$/gm.test(pathname))
     return isActive || isRoot ? 'text-mck_aqua' : 'text-gray-500'
+  }
+
+  const handleSignOut = () => {
+    auth.signOut()
   }
 
   return (
@@ -32,6 +39,21 @@ const DesktopMenu = ({ social, links }: SideMenuProps) => {
               </Styles.LinksItem>
             ))}
         </Styles.Links>
+
+        {auth.user ? (
+          <Styles.Session>
+            <Styles.DashboardLink>
+              <Link to={'/admin'}>Dashboard</Link>
+            </Styles.DashboardLink>
+            <Styles.SignOutLink onClick={handleSignOut}>
+              Sair
+            </Styles.SignOutLink>
+          </Styles.Session>
+        ) : (
+          <Styles.SignInLink>
+            <Link to={'/login'}>Entrar</Link>
+          </Styles.SignInLink>
+        )}
       </Styles.LinksWrapper>
 
       <Styles.SocialWrapper>
