@@ -5,6 +5,8 @@ import theme from '../../theme'
 
 type IconPositionProps = Pick<TextInputProps, 'iconPosition'>
 
+type LabelProps = Pick<TextInputProps, 'labelColor'>
+
 type WrapperProps = Pick<TextInputProps, 'disabled'> & { error?: boolean }
 
 const InputWrapper = styled.div`
@@ -46,10 +48,10 @@ const Input = styled.input<IconPositionProps>`
   `}
 `
 
-const Label = styled.label`
-  ${() => css`
-    font-size: ${theme.font.sizes.small};
-    color: ${theme.colors.black};
+const Label = styled.label<LabelProps>`
+  ${({ labelColor }) => css`
+    font-size: ${theme.font.sizes.large};
+    color: ${theme.colors[labelColor ?? 'black']};
     cursor: pointer;
   `}
 `
