@@ -9,10 +9,35 @@ exports[`Menu Component > should render menu on desktop 1`] = `
   text-align: -webkit-center;
 }
 
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
 .c2 a {
   display: block;
   padding: 1rem 2.5rem;
   width: 100%;
+}
+
+.c3 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(8 253 216 / var(--tw-bg-opacity));
+}
+
+.c3 a {
+  --tw-text-opacity: 1;
+  color: rgb(0 3 44 / var(--tw-text-opacity));
 }
 
 <div>
@@ -110,6 +135,15 @@ exports[`Menu Component > should render menu on desktop 1`] = `
           </a>
         </li>
       </ul>
+      <li
+        class="c2 c3"
+      >
+        <a
+          href="/login"
+        >
+          Entrar
+        </a>
+      </li>
     </nav>
     <div
       class="flex flex-row justify-around py-2"
