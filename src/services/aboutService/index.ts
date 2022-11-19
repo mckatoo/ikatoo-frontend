@@ -1,15 +1,5 @@
+import { ResponseCreateAboutPageType } from '../../types/AboutPage'
 import api from '../api'
-
-type ResponseCreateAboutPageType = {
-  id: string
-  title: string
-  description: string
-  user_id: string
-  image: {
-    alt: string
-    src: string
-  }
-}
 
 const getHeaders = () => {
   const token = localStorage.getItem('IKATOO_AuthToken') ?? ''
