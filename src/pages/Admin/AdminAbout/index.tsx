@@ -1,4 +1,6 @@
+import Button from '../../../components/Button'
 import { FormContainer } from '../../../components/FormContainer'
+import TextArea from '../../../components/TextArea'
 import { TextContainer } from '../../../components/TextContainer'
 import TextInput from '../../../components/TextInput'
 import useAuth from '../../../hooks/useAuth'
@@ -30,10 +32,26 @@ export const AdminAbout = () => {
     <Styles.Wrapper>
       <TextContainer title={'Informações sobre você.'}>
         <FormContainer>
-          <form onSubmit={handleSubmit} method="post">
-            <TextInput name="title" />
-            <TextInput name="description" />
-          </form>
+          <Styles.Form onSubmit={handleSubmit} method="post">
+            <Styles.TextWrapper>
+              <TextInput
+                labelColor="white"
+                label="Título"
+                name="title"
+                placeholder="Título"
+              />
+            </Styles.TextWrapper>
+            <TextArea
+              label="Descrição"
+              labelColor="white"
+              name="description"
+              placeholder="Descrição"
+            />
+
+            <Styles.Actions>
+              <Button styleType="primary">Salvar</Button>
+            </Styles.Actions>
+          </Styles.Form>
         </FormContainer>
       </TextContainer>
     </Styles.Wrapper>
