@@ -1,4 +1,7 @@
-import { ResponseCreateAboutPageType } from '../../types/AboutPage'
+import {
+  AboutPageServiceType,
+  ResponseCreateAboutPageType
+} from '../../types/AboutPage'
 import api from '../api'
 
 const getHeaders = () => {
@@ -6,7 +9,8 @@ const getHeaders = () => {
 
   return {
     headers: {
-      Authorization: `bearer ${token}`
+      Authorization: `bearer ${token}`,
+      ContentType: 'application/json'
     }
   }
 }
@@ -26,5 +30,15 @@ export default {
       },
       getHeaders()
     )
+  },
+  get: async (userId: string) => {
+    const { data } = await api.get<AboutPageServiceType>(
+      `/about/user_id/${userId}`,
+      {
+        headers: { 'Content-Type': 'application/json' }
+      }
+    )
+
+    return data
   }
 }
