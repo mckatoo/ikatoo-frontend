@@ -1,4 +1,4 @@
-import React, { TextareaHTMLAttributes, useState } from 'react'
+import React, { TextareaHTMLAttributes, useEffect, useState } from 'react'
 
 import Styles from './styles'
 
@@ -23,6 +23,10 @@ const TextArea = ({
   ...props
 }: TextAreaProps) => {
   const [value, setValue] = useState(initialValue)
+
+  useEffect(() => {
+    setValue(initialValue)
+  }, [initialValue])
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newValue = e.currentTarget.value
