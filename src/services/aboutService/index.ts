@@ -1,6 +1,6 @@
 import {
   AboutPageServiceType,
-  ResponseCreateAboutPageType
+  ResponseAboutPageType
 } from '../../types/AboutPage'
 import api from '../api'
 
@@ -15,30 +15,60 @@ const getHeaders = () => {
   }
 }
 
+const serviceErrorMessage = (error: Error) => {
+  console.log('----------------')
+  console.log('Service error:', error)
+  console.log('----------------')
+}
+
 export default {
   create: async ({
     title,
     description,
     user_id
-  }: Omit<ResponseCreateAboutPageType, 'id' | 'image'>) => {
-    await api.post<ResponseCreateAboutPageType>(
-      '/about',
-      {
-        title,
-        description,
-        user_id
-      },
-      getHeaders()
-    )
+  }: Omit<AboutPageServiceType, 'id'>) => {
+    try {
+      await api.post<ResponseAboutPageType>(
+        '/about',
+        {
+          title,
+          description,
+          user_id
+        },
+        getHeaders()
+      )
+    } catch (error) {
+      error instanceof Error && serviceErrorMessage(error)
+    }
+  },
+  update: async ({ id, title, description, user_id }: AboutPageServiceType) => {
+    try {
+      await api.put<ResponseAboutPageType>(
+        '/about',
+        {
+          id,
+          title,
+          description,
+          user_id
+        },
+        getHeaders()
+      )
+    } catch (error) {
+      error instanceof Error && serviceErrorMessage(error)
+    }
   },
   get: async (userId: string) => {
-    const { data } = await api.get<AboutPageServiceType>(
-      `/about/user_id/${userId}`,
-      {
-        headers: { 'Content-Type': 'application/json' }
-      }
-    )
+    try {
+      const { data } = await api.get<AboutPageServiceType>(
+        `/about/user_id/${userId}`,
+        {
+          headers: { 'Content-Type': 'application/json' }
+        }
+      )
 
-    return data
+      return data
+    } catch (error) {
+      error instanceof Error && serviceErrorMessage(error)
+    }
   }
 }
