@@ -13,12 +13,12 @@ export default {
   Text: tw.div`
     flex
     flex-row
-    md:w-1/2
+    md:w-full
   `,
   Skills: tw.div`
     flex
-    md:w-1/2
-    h-full
+    md:w-full
+    h-screen
     items-center
     justify-center
   `,
