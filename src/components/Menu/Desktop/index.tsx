@@ -15,10 +15,6 @@ const DesktopMenu = ({ social, links }: SideMenuProps) => {
     return isActive || isRoot ? 'text-mck_aqua' : 'text-gray-500'
   }
 
-  const handleSignOut = () => {
-    auth.signOut()
-  }
-
   return (
     <Styles.Menu aria-label="Side Menu">
       <Styles.LogoWrapper>
@@ -45,9 +41,6 @@ const DesktopMenu = ({ social, links }: SideMenuProps) => {
             <Styles.DashboardLink>
               <Link to={'/admin'}>Dashboard</Link>
             </Styles.DashboardLink>
-            <Styles.SignOutLink onClick={handleSignOut}>
-              Sair
-            </Styles.SignOutLink>
           </Styles.Session>
         ) : (
           <Styles.SignInLink>
