@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react'
 import IconCloud from '../../components/IconCloud'
 import { TextContainer } from '../../components/TextContainer'
-import { about } from './mock'
+import aboutService from '../../services/aboutService'
 import Styles from './styles'
 
 export type AboutProps = {
@@ -14,25 +15,39 @@ export type AboutProps = {
 }
 
 export const About = () => {
-  const { description, title, image, skills } = about
+  const [data, setData] = useState<AboutProps>()
+
+  useEffect(() => {
+    const getData = async () => {
+      const _data = await aboutService.getByDomain('teste.com')
+      !!_data &&
+        setData({
+          ..._data,
+          skills: []
+        })
+    }
+    getData()
+  }, [])
 
   return (
     <Styles.Wrapper>
       <Styles.Text>
-        {!!title && (
-          <TextContainer title={title}>
-            <div dangerouslySetInnerHTML={{ __html: description }} />
+        {!!data?.title && (
+          <TextContainer title={data?.title}>
+            <div dangerouslySetInnerHTML={{ __html: data?.description }} />
           </TextContainer>
         )}
       </Styles.Text>
 
-      {!image ? (
-        <Styles.Skills>
-          <IconCloud slugs={skills} />
-        </Styles.Skills>
+      {!data?.image ? (
+        !!data?.skills.length && (
+          <Styles.Skills>
+            <IconCloud slugs={data.skills} />
+          </Styles.Skills>
+        )
       ) : (
         <Styles.ImageWrapper>
-          <img src={image.src} alt={image.alt} />
+          <img src={data?.image.src} alt={data?.image.alt} />
         </Styles.ImageWrapper>
       )}
     </Styles.Wrapper>

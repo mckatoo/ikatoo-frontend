@@ -67,5 +67,19 @@ export default {
     } catch (error) {
       error instanceof Error && serviceErrorMessage(error)
     }
+  },
+  getByDomain: async (domain: string) => {
+    try {
+      const { data } = await api.get<AboutPageServiceType>(
+        `/about/domain/${domain}`,
+        {
+          headers: { 'Content-Type': 'application/json' }
+        }
+      )
+
+      return data
+    } catch (error) {
+      error instanceof Error && serviceErrorMessage(error)
+    }
   }
 }
