@@ -59,15 +59,10 @@ export default {
     text-inherit
   `,
   Session: tw.div`
-    grid
-    grid-cols-2
     text-mck_gray_light
   `,
   DashboardLink: tw(LinksItem)`
-    bg-mck_black_light
-  `,
-  SignOutLink: tw(LinksItem)`
-    bg-mck_red
+    bg-mck_secondary
   `,
   SignInLink: styled(LinksItem)`
     --tw-bg-opacity: 1;
