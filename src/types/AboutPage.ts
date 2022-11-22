@@ -1,4 +1,4 @@
-export type ResponseCreateAboutPageType = {
+export type ResponseAboutPageType = {
   id: string
   title: string
   description: string
