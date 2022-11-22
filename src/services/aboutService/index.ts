@@ -1,7 +1,4 @@
-import {
-  AboutPageServiceType,
-  ResponseAboutPageType
-} from '../../types/AboutPage'
+import { AboutPageServiceType } from '../../types/AboutPage'
 import api from '../api'
 
 const getHeaders = () => {
@@ -28,7 +25,7 @@ export default {
     user_id
   }: Omit<AboutPageServiceType, 'id'>) => {
     try {
-      await api.post<ResponseAboutPageType>(
+      await api.post(
         '/about',
         {
           title,
@@ -43,7 +40,7 @@ export default {
   },
   update: async ({ id, title, description, user_id }: AboutPageServiceType) => {
     try {
-      await api.put<ResponseAboutPageType>(
+      await api.put(
         '/about',
         {
           id,
