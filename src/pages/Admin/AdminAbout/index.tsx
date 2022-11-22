@@ -5,6 +5,7 @@ import { FormContainer } from '../../../components/FormContainer'
 import TextArea from '../../../components/TextArea'
 import { TextContainer } from '../../../components/TextContainer'
 import TextInput from '../../../components/TextInput'
+import { useAlert } from '../../../hooks/useAlert'
 import useAuth from '../../../hooks/useAuth'
 import aboutService from '../../../services/aboutService'
 import { AboutPageServiceType } from '../../../types/AboutPage'
@@ -17,13 +18,15 @@ type FormFields = {
 
 export const AdminAbout = () => {
   const auth = useAuth()
+  const { setAlert } = useAlert()
+
   const [data, setData] = useState<AboutPageServiceType>()
 
   useEffect(() => {
     const getInitialData = async () => {
       if (auth.user?.id) {
         const initialData = await aboutService.get(auth.user?.id ?? '')
-        setData(initialData)
+        !!initialData && setData(initialData)
       }
     }
     getInitialData()
@@ -38,7 +41,20 @@ export const AdminAbout = () => {
     } = event.currentTarget as unknown as FormFields
 
     if (title && description) {
-      aboutService.create({ title, description, user_id: `${auth.user?.id}` })
+      !data
+        ? !!aboutService.create({
+            title,
+            description,
+            user_id: `${auth.user?.id}`
+          }) &&
+          setAlert({ title: 'Success on create about page.', type: 'message' })
+        : !!aboutService.update({
+            id: data.id,
+            title,
+            description,
+            user_id: `${auth.user?.id}`
+          }) &&
+          setAlert({ title: 'Success on update about page.', type: 'message' })
     }
   }
 
