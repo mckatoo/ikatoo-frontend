@@ -49,7 +49,6 @@ const TextEditor = ({
           config={config}
           type="classic"
           initData={initialValue}
-          onInstanceReady={({ editor }) => console.log('editor', editor)}
           onChange={handleOnChange}
         />
       </Styles.EditorWrapper>
