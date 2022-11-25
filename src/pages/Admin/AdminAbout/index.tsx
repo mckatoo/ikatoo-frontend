@@ -1,32 +1,32 @@
 import { useEffect, useState } from 'react'
 
 import Button from '../../../components/Button'
+import TextEditor from '../../../components/TextEditor'
 import { FormContainer } from '../../../components/FormContainer'
-import TextArea from '../../../components/TextArea'
 import { TextContainer } from '../../../components/TextContainer'
 import TextInput from '../../../components/TextInput'
 import { useAlert } from '../../../hooks/useAlert'
 import useAuth from '../../../hooks/useAuth'
 import aboutService from '../../../services/aboutService'
-import { AboutPageServiceType } from '../../../types/AboutPage'
 import Styles from './styles'
-
-type FormFields = {
-  title: { value: string }
-  description: { value: string }
-}
 
 export const AdminAbout = () => {
   const auth = useAuth()
   const { setAlert } = useAlert()
 
-  const [data, setData] = useState<AboutPageServiceType>()
+  const [id, setId] = useState<string>()
+  const [title, setTitle] = useState<string>()
+  const [description, setDescription] = useState<string>()
 
   useEffect(() => {
     const getInitialData = async () => {
       if (auth.user?.id) {
         const initialData = await aboutService.get(auth.user?.id ?? '')
-        !!initialData && setData(initialData)
+        if (initialData) {
+          setId(initialData.id)
+          setTitle(initialData.title)
+          setDescription(initialData.description)
+        }
       }
     }
     getInitialData()
@@ -35,26 +35,24 @@ export const AdminAbout = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
 
-    const {
-      title: { value: title },
-      description: { value: description }
-    } = event.currentTarget as unknown as FormFields
-
-    if (title && description) {
-      !data
-        ? !!aboutService.create({
-            title,
-            description,
-            user_id: `${auth.user?.id}`
-          }) &&
-          setAlert({ title: 'Success on create about page.', type: 'message' })
-        : !!aboutService.update({
-            id: data.id,
-            title,
-            description,
-            user_id: `${auth.user?.id}`
-          }) &&
-          setAlert({ title: 'Success on update about page.', type: 'message' })
+    if (!id) {
+      aboutService.create({
+        title: title,
+        description: description,
+        user_id: auth.user?.id
+      })
+      setAlert({
+        title: 'Success on create about page.',
+        type: 'message'
+      })
+    } else {
+      aboutService.update({
+        id: id,
+        title: title,
+        description: description,
+        user_id: auth.user?.id
+      })
+      setAlert({ title: 'Success on update about page.', type: 'message' })
     }
   }
 
@@ -65,23 +63,35 @@ export const AdminAbout = () => {
           <Styles.Form onSubmit={handleSubmit} method="post">
             <Styles.TextWrapper>
               <TextInput
-                initialValue={data?.title}
+                initialValue={title}
                 labelColor="white"
                 label="Título"
                 name="title"
                 placeholder="Título"
+                onBlur={(event) => setTitle(event.currentTarget.value)}
+                tabIndex={1}
+                autoFocus
               />
             </Styles.TextWrapper>
-            <TextArea
-              initialValue={data?.description}
-              label="Descrição"
-              labelColor="white"
-              name="description"
-              placeholder="Descrição"
-            />
+
+            <Styles.TextWrapper>
+              {!!description && (
+                <TextEditor
+                  initialValue={description}
+                  label="Descrição"
+                  labelColor="white"
+                  name="description"
+                  placeholder="Descrição"
+                  onChange={(value) => setDescription(value)}
+                  tabIndex={2}
+                />
+              )}
+            </Styles.TextWrapper>
 
             <Styles.Actions>
-              <Button styleType="primary">Salvar</Button>
+              <Button tabIndex={3} styleType="primary">
+                Salvar
+              </Button>
             </Styles.Actions>
           </Styles.Form>
         </FormContainer>
