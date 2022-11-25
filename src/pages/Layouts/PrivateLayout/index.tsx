@@ -47,14 +47,14 @@ export const PrivateLayout = () => {
   }
 
   return (
-    <div className="h-screen flex flex-cols">
+    <div className="h-screen w-screen flex flex-cols">
       {!!auth.user && (
         <MediaMatch greaterThan="md">
           <Session />
         </MediaMatch>
       )}
       <Menu {...menu} />
-      <div className="h-screen">
+      <div className="h-screen w-full overflow-y-auto">
         <Outlet />
       </div>
     </div>
