@@ -23,7 +23,7 @@ export default {
     title,
     description,
     user_id
-  }: Omit<AboutPageServiceType, 'id'>) => {
+  }: Omit<Partial<AboutPageServiceType>, 'id'>) => {
     try {
       await api.post(
         '/about',
@@ -38,7 +38,12 @@ export default {
       error instanceof Error && serviceErrorMessage(error)
     }
   },
-  update: async ({ id, title, description, user_id }: AboutPageServiceType) => {
+  update: async ({
+    id,
+    title,
+    description,
+    user_id
+  }: Partial<AboutPageServiceType>) => {
     try {
       await api.put(
         '/about',
