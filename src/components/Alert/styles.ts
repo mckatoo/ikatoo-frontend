@@ -11,6 +11,8 @@ export default {
   Main: tw.div`
     ${(props: Props) => isClosed(props)}
     fixed
+    top-16
+    md:top-0
     w-screen
     z-50
     font-semibold
