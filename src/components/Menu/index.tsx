@@ -19,14 +19,14 @@ export type SideMenuProps = {
 }
 
 const Menu = (props: SideMenuProps) => (
-  <>
+  <div className="z-10">
     <MediaMatch greaterThan="md">
       <DesktopMenu {...props} />
     </MediaMatch>
     <MediaMatch lessThan="md">
       <MobileMenu {...props} />
     </MediaMatch>
-  </>
+  </div>
 )
 
 export default Menu
