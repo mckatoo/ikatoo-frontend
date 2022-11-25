@@ -21,7 +21,7 @@ export default {
     text-center
     w-fit
     z-20
-    h-full
+    h-screen
     bg-slate-800
     text-gray-500
     flex
