@@ -48,6 +48,7 @@ export const Login = () => {
               icon={<UserCircle />}
               name="username"
               placeholder="Username"
+              autoFocus
             />
 
             <Styles.DivisorWrapper>
