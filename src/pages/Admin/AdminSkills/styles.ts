@@ -11,7 +11,6 @@ export default {
     min-w-screen
 
     items-start
-    overflow-y-auto
     ml-4
     md:mt-0
     md:pt-4

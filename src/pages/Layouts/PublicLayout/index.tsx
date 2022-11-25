@@ -48,7 +48,7 @@ export const PublicLayout = () => {
   }
 
   return (
-    <div className="h-screen flex flex-cols">
+    <div className="h-screen w-screen flex flex-cols">
       {!!auth.user && (
         <MediaMatch greaterThan="md">
           <Session />
