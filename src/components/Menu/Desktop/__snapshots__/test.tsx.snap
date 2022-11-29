@@ -43,7 +43,7 @@ exports[`Menu Component > should render menu on desktop 1`] = `
 <div>
   <menu
     aria-label="Side Menu"
-    class="text-center w-fit z-20 h-full bg-slate-800 text-gray-500 flex flex-col justify-between"
+    class="text-center w-fit z-20 h-screen bg-slate-800 text-gray-500 flex flex-col justify-between"
   >
     <div
       class="c0 z-30 flex justify-center px-4 py-8 bg-mck_black"
