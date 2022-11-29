@@ -1,6 +1,8 @@
-import { CKEditor, CKEditorEventPayload } from 'ckeditor4-react'
+import { CKEditor } from '@ckeditor/ckeditor5-react'
+import { EditorConfig } from '@ckeditor/ckeditor5-core/src/editor/editorconfig'
 
 import Styles from './styles'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 export type EditorProps = {
   placeholder: string
@@ -14,45 +16,36 @@ export type EditorProps = {
   tabIndex?: number
 }
 
-const TextEditor = ({
-  placeholder,
-  label,
-  labelColor = 'black',
-  name,
-  initialValue = '',
-  error,
-  disabled = false,
-  tabIndex,
-  onChange
-}: EditorProps) => {
-  const handleOnChange = ({ editor }: CKEditorEventPayload<'change'>) => {
-    !!onChange && onChange(editor.getData())
-  }
-
-  const config = {
-    tabIndex,
-    extraPlugins: 'editorplaceholder,emoji',
-    editorplaceholder: placeholder,
-    applicationTitle: false
+const TextEditor = (props: EditorProps) => {
+  const config: EditorConfig = {
+    // tabIndex,
+    extraPlugins: [],
+    placeholder: props.placeholder
+    // applicationTitle: false
   }
 
   return (
-    <Styles.Wrapper disabled={disabled} error={!!error}>
-      {!!label && (
-        <Styles.Label labelColor={labelColor} htmlFor={name}>
-          {label}
+    <Styles.Wrapper disabled={props.disabled} error={!!props.error}>
+      {!!props.label && (
+        <Styles.Label
+          labelColor={props.labelColor}
+          htmlFor={`ck_${props.name}`}
+        >
+          {props.label}
         </Styles.Label>
       )}
       <Styles.EditorWrapper>
         <CKEditor
-          readOnly={disabled}
+          id={`ck_${props.name}`}
+          editor={ClassicEditor}
+          data={props.initialValue}
           config={config}
-          type="classic"
-          initData={initialValue}
-          onChange={handleOnChange}
+          onChange={(_event, editor) => {
+            !!props.onChange && props.onChange(editor.getData())
+          }}
         />
       </Styles.EditorWrapper>
-      {!!error && <Styles.Error>{error}</Styles.Error>}
+      {!!props.error && <Styles.Error>{props.error}</Styles.Error>}
     </Styles.Wrapper>
   )
 }

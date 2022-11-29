@@ -75,17 +75,15 @@ export const AdminAbout = () => {
             </Styles.TextWrapper>
 
             <Styles.TextWrapper>
-              {!!description && (
-                <TextEditor
-                  initialValue={description}
-                  label="Descrição"
-                  labelColor="white"
-                  name="description"
-                  placeholder="Descrição"
-                  onChange={(value) => setDescription(value)}
-                  tabIndex={2}
-                />
-              )}
+              <TextEditor
+                initialValue={description}
+                label="Descrição"
+                labelColor="white"
+                name="description"
+                placeholder="Descrição"
+                onChange={(value) => setDescription(value)}
+                tabIndex={2}
+              />
             </Styles.TextWrapper>
 
             <Styles.Actions>
