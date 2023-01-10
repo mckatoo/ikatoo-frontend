@@ -5,55 +5,55 @@ import TextEditor from '../../../components/TextEditor'
 import { FormContainer } from '../../../components/FormContainer'
 import { TextContainer } from '../../../components/TextContainer'
 import TextInput from '../../../components/TextInput'
-import { useAlert } from '../../../hooks/useAlert'
+// import { useAlert } from '../../../hooks/useAlert'
 import useAuth from '../../../hooks/useAuth'
-import aboutService from '../../../services/aboutService'
+// import aboutService from '../../../services/aboutService'
 import Styles from './styles'
 
 export const AdminAbout = () => {
   const auth = useAuth()
-  const { setAlert } = useAlert()
+  // const { setAlert } = useAlert()
 
-  const [id, setId] = useState<string>()
+  // const [id, setId] = useState<string>()
   const [title, setTitle] = useState<string>()
   const [description, setDescription] = useState<string>()
 
   useEffect(() => {
-    const getInitialData = async () => {
-      if (auth.user?.id) {
-        const initialData = await aboutService.get(auth.user?.id ?? '')
-        if (initialData) {
-          setId(initialData.id)
-          setTitle(initialData.title)
-          setDescription(initialData.description)
-        }
-      }
-    }
-    getInitialData()
+    // const getInitialData = async () => {
+    //   if (auth.user?.id) {
+    //     const initialData = await aboutService.get(auth.user?.id ?? '')
+    //     if (initialData) {
+    //       setId(initialData.id)
+    //       setTitle(initialData.title)
+    //       setDescription(initialData.description)
+    //     }
+    //   }
+    // }
+    // getInitialData()
   }, [auth.user?.id])
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
 
-    if (!id) {
-      aboutService.create({
-        title: title,
-        description: description,
-        user_id: auth.user?.id
-      })
-      setAlert({
-        title: 'Success on create about page.',
-        type: 'message'
-      })
-    } else {
-      aboutService.update({
-        id: id,
-        title: title,
-        description: description,
-        user_id: auth.user?.id
-      })
-      setAlert({ title: 'Success on update about page.', type: 'message' })
-    }
+    // if (!id) {
+    //   aboutService.create({
+    //     title: title,
+    //     description: description,
+    //     user_id: auth.user?.id
+    //   })
+    //   setAlert({
+    //     title: 'Success on create about page.',
+    //     type: 'message'
+    //   })
+    // } else {
+    //   aboutService.update({
+    //     id: id,
+    //     title: title,
+    //     description: description,
+    //     user_id: auth.user?.id
+    //   })
+    //   setAlert({ title: 'Success on update about page.', type: 'message' })
+    // }
   }
 
   return (
