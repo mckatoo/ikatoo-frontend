@@ -5,6 +5,6 @@ const env = (key: string) => {
 }
 
 export default {
-  VITE_GITHUB_CLIENT_ID: env('VITE_GITHUB_CLIENT_ID'),
-  VITE_REDIRECT_URL: env('VITE_REDIRECT_URL')
+  VITE_API_SECRETS: env('VITE_API_SECRETS'),
+  VITE_API_URL: env('VITE_API_URL')
 }
