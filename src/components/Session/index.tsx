@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
-import useAuth from '../../hooks/useAuth'
 import Styles from './styles'
 
 const Session = () => {
-  const { user, signOut } = useAuth()
+  const user = { name: '', avatar: { url: '', alt: '' } }
+  const signOut = () => ({})
   const avatar = user?.avatar
   const [hidden, setHidden] = useState(true)
 

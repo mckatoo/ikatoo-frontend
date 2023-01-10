@@ -3,11 +3,10 @@ import { Outlet } from 'react-router-dom'
 import MediaMatch from '../../../components/MediaMatch'
 import Menu, { SideMenuProps } from '../../../components/Menu'
 import Session from '../../../components/Session'
-import useAuth from '../../../hooks/useAuth'
 import Styles from './styles'
 
 export const PublicLayout = () => {
-  const auth = useAuth()
+  const auth = { user: {} }
 
   const menu: SideMenuProps = {
     links: [

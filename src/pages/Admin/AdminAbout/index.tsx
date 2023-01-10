@@ -6,12 +6,11 @@ import { FormContainer } from '../../../components/FormContainer'
 import { TextContainer } from '../../../components/TextContainer'
 import TextInput from '../../../components/TextInput'
 // import { useAlert } from '../../../hooks/useAlert'
-import useAuth from '../../../hooks/useAuth'
 // import aboutService from '../../../services/aboutService'
 import Styles from './styles'
 
 export const AdminAbout = () => {
-  const auth = useAuth()
+  const auth = { user: { id: '' } }
   // const { setAlert } = useAlert()
 
   // const [id, setId] = useState<string>()
