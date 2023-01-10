@@ -1,13 +1,12 @@
 import SVG from 'react-inlinesvg'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { SideMenuProps } from '..'
-import useAuth from '../../../hooks/useAuth'
 import Logo from '../../Logo'
 import Styles from './styles'
 
 const DesktopMenu = ({ social, links }: SideMenuProps) => {
   const { pathname } = useLocation()
-  const auth = useAuth()
+  const auth = { user: {} }
 
   const getStyle = (to: string, isActive: boolean) => {
     const isRoot =
