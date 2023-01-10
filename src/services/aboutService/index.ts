@@ -1,3 +1,4 @@
+import { about } from '../../pages/About/mock'
 import { AboutPageServiceType } from '../../types/AboutPage'
 import api from '../api'
 
@@ -61,12 +62,13 @@ export default {
   },
   get: async (userId: string) => {
     try {
-      const { data } = await api.get<AboutPageServiceType>(
-        `/about/user_id/${userId}`,
-        {
-          headers: { 'Content-Type': 'application/json' }
-        }
-      )
+      // const { data } = await api.get<AboutPageServiceType>(
+      //   `/about/user_id/${userId}`,
+      //   {
+      //     headers: { 'Content-Type': 'application/json' }
+      //   }
+      // )
+      const data = { ...about, userId }
 
       return data
     } catch (error) {

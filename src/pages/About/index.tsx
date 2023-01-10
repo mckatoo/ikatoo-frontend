@@ -19,7 +19,7 @@ export const About = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const _data = await aboutService.getByDomain('teste.com')
+      const _data = await aboutService.get('userId')
       !!_data &&
         setData({
           ..._data,
