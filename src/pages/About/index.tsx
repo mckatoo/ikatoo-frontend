@@ -22,8 +22,7 @@ export const About = () => {
       const _data = await aboutService.get('userId')
       !!_data &&
         setData({
-          ..._data,
-          skills: []
+          ..._data
         })
     }
     getData()
