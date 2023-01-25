@@ -3,27 +3,15 @@ import IconCloud from '../../components/IconCloud'
 import { TextContainer } from '../../components/TextContainer'
 import aboutService from '../../services/aboutService'
 import Styles from './styles'
-
-export type AboutProps = {
-  skills: string[]
-  title?: string
-  description: string
-  image?: {
-    src: string
-    alt: string
-  }
-}
+import { AboutPageServiceType } from '../../types/AboutPage'
 
 export const About = () => {
-  const [data, setData] = useState<AboutProps>()
+  const [data, setData] = useState<AboutPageServiceType>()
 
   useEffect(() => {
     const getData = async () => {
-      const _data = await aboutService.get('userId')
-      !!_data &&
-        setData({
-          ..._data
-        })
+      const _data = await aboutService.get()
+      !!_data && setData(_data)
     }
     getData()
   }, [])
@@ -38,16 +26,19 @@ export const About = () => {
         )}
       </Styles.Text>
 
-      {!data?.image ? (
-        !!data?.skills.length && (
-          <Styles.Skills>
-            <IconCloud slugs={data.skills} />
-          </Styles.Skills>
-        )
+      {data?.skills.length ? (
+        <Styles.Skills>
+          <IconCloud slugs={data.skills.map((skill) => skill.title)} />
+        </Styles.Skills>
       ) : (
-        <Styles.ImageWrapper>
-          <img src={data?.image.src} alt={data?.image.alt} />
-        </Styles.ImageWrapper>
+        !!data?.illustrationURL && (
+          <Styles.ImageWrapper>
+            <img
+              src={data?.illustrationURL}
+              alt={data?.illustrationALT ?? ''}
+            />
+          </Styles.ImageWrapper>
+        )
       )}
     </Styles.Wrapper>
   )
