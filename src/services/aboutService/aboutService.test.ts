@@ -1,9 +1,13 @@
-import { describe, expect, test, vi } from 'vitest'
+import { describe, test } from 'vitest'
 
-vi.mock('axios')
+import aboutService from '.'
+import { aboutPageMock } from '../../mocks/aboutPageMock'
 
 describe('About page fetch data', () => {
-  test('should create about page data', async () => {
+  test('should get about page data', async () => {
     expect(true).toBe(true)
+    const result = await aboutService.get()
+
+    expect(result).toEqual(aboutPageMock)
   })
 })

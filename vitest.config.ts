@@ -4,10 +4,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    include: [
-      'src/**/test.{ts,tsx}',
-      'src/**/*.test.{ts,tsx}'
-    ],
-    setupFiles: ['./vitestGlobalReact.ts']
+    include: ['src/**/test.{ts,tsx}', 'src/**/*.test.{ts,tsx}'],
+    setupFiles: ['./mswSetup.ts', './vitestGlobalReact.ts']
   }
 })

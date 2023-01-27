@@ -1,6 +1,9 @@
 import env from '../helpers/env'
 
-const API_URL = env.VITE_API_URL
+const API_URL =
+  env.VITE_API_URL[env.VITE_API_URL.length - 1] === '/'
+    ? env.VITE_API_URL.slice(0, -1)
+    : env.VITE_API_URL
 
 type CustomHeaders = {
   headers: HeadersInit
@@ -12,7 +15,9 @@ const httpFetch = async (
   headers: CustomHeaders | undefined,
   method: 'POST' | 'PUT' | 'DELETE'
 ) => {
-  return await fetch(`${API_URL}/${resource}`, {
+  const validResource = resource[0] === '/' ? resource.slice(1) : resource
+
+  return await fetch(`${API_URL}/${validResource}`, {
     method,
     body: JSON.stringify(body),
     headers: headers?.headers || { 'Content-Type': 'application/json' }
@@ -21,7 +26,8 @@ const httpFetch = async (
 
 const api = {
   get: async <T>(resource: string) => {
-    const result = await fetch(`${API_URL}/${resource}`)
+    const validResource = resource[0] === '/' ? resource.slice(1) : resource
+    const result = await fetch(`${API_URL}/${validResource}`)
     const data: T = await result.json()
 
     return { data }
