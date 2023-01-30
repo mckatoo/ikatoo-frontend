@@ -23,6 +23,4 @@ ARG VITE_API_URL
 
 ENV VITE_API_URL=${VITE_API_URL}
 
-EXPOSE ${PORT}
-
 COPY --from=builder /home/node/app/dist /usr/share/nginx/html
