@@ -4,9 +4,9 @@ FROM node:18.13-alpine AS builder
 
 WORKDIR /home/node/app
 
-COPY package.json ./
+COPY package*.json ./
 
-RUN yarn install
+RUN npm ci
 
 COPY --chown=node:node . .
 
