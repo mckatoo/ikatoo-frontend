@@ -60,7 +60,7 @@ export default {
       error instanceof Error && serviceErrorMessage(error)
     }
   },
-  get: async (userId: string) => {
+  get: async () => {
     try {
       // const { data } = await api.get<AboutPageServiceType>(
       //   `/about/user_id/${userId}`,
@@ -68,9 +68,8 @@ export default {
       //     headers: { 'Content-Type': 'application/json' }
       //   }
       // )
-      const data = { ...about, userId }
 
-      return data
+      return about
     } catch (error) {
       error instanceof Error && serviceErrorMessage(error)
     }
