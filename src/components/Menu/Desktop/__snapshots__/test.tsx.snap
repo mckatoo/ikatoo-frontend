@@ -30,16 +30,6 @@ exports[`Menu Component > should render menu on desktop 1`] = `
   width: 100%;
 }
 
-.c3 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(8 253 216 / var(--tw-bg-opacity));
-}
-
-.c3 a {
-  --tw-text-opacity: 1;
-  color: rgb(0 3 44 / var(--tw-text-opacity));
-}
-
 <div>
   <menu
     aria-label="Side Menu"
@@ -135,15 +125,19 @@ exports[`Menu Component > should render menu on desktop 1`] = `
           </a>
         </li>
       </ul>
-      <li
-        class="c2 c3"
+      <div
+        class="text-mck_gray_light"
       >
-        <a
-          href="/login"
+        <li
+          class="c2 bg-mck_secondary"
         >
-          Entrar
-        </a>
-      </li>
+          <a
+            href="/admin"
+          >
+            Dashboard
+          </a>
+        </li>
+      </div>
     </nav>
     <div
       class="flex flex-row justify-around py-2"
