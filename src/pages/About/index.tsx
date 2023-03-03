@@ -19,7 +19,7 @@ export const About = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const _data = await aboutService.get('userId')
+      const _data = await aboutService.get()
       !!_data &&
         setData({
           ..._data
